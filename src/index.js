@@ -1,17 +1,66 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import "./assets/css/App.css";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+import 'swiper/css/autoplay';
+
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./pages/Home";
+import AboutUs from "./pages/AboutUs";
+import ContactUs from "./pages/ContactUs";
+import InclusivePage from "./components/InclusivePage";
+import { GlobalProvider } from "./context/GlobalContext";
+import Header from "./layout/Header";
+import Footer from "./layout/Footer";
+
+
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <>
+        <Header />
+        <InclusivePage />
+        <Footer />
+      </>
+    ), // Ana sayfa başlığı
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/about-us",
+        element: <InclusivePage pageTitle={"About Us"} />, // About Us sayfası başlığı
+        children: [
+          {
+            path: "/about-us",
+            element: <AboutUs />,
+          },
+        ],
+      },
+      {
+        path: "/contact-us",
+        element: <InclusivePage pageTitle={"Contact Us"} />, // Contact Us sayfası başlığı
+        children: [
+          {
+            path: "/contact-us",
+            element: <ContactUs />,
+          },
+        ],
+      },
+    ],
+  },
+]);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <GlobalProvider>
+    <RouterProvider router={router} />
+  </GlobalProvider>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
