@@ -5,6 +5,7 @@ import BoatSearchForm from "../components/forms/BoatSearchForm";
 // import { EffectFade } from "swiper/modules";
 import AboutSlide from "../components/AboutSlide";
 import BoatsSlide from "../components/BoatsSlide";
+import NewsSlide from "../components/NewsSlide";
 
 const words = [
   "SANLORENZO",
@@ -173,6 +174,144 @@ export default function Home() {
           </div>
 
           <BoatsSlide />
+        </div>
+      </section>
+
+      {/* Say Danışmanlık Deneyimi */}
+      <section>
+        <div className="container">
+          <div className="module-header">
+            <h2>Say Danışmanlık Deneyimi</h2>
+            <p>
+              İhtiyacınızın ve isteklerinizin sınırı ne olursa olsun huzurlu bir
+              tekne tatili vadederek her türden denizciye uygun alternatifler
+              sunmayı hedefliyoruz.
+            </p>
+          </div>
+
+          <div className="module_body">
+            <div className="image-list">
+              <div>
+                <img src={require("../assets/images/boat1.png")} alt="" />
+              </div>
+              <div>
+                <img src={require("../assets/images/boat2.png")} alt="" />
+              </div>
+              <div>
+                <img src={require("../assets/images/boat3.png")} alt="" />
+              </div>
+              <div>
+                <img src={require("../assets/images/i4.png")} alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Tekne Görseli */}
+      <section style={{ marginTop: "6rem" }}>
+        <div className="container">
+          <img
+            src={require("../assets/images/yat.png")}
+            alt="Yat Görseli"
+            width={"100%"}
+            style={{ borderRadius: "1rem" }}
+          />
+        </div>
+      </section>
+
+      {/* Popüler Tekneler */}
+      <section>
+        <div className="container">
+          <div className="module-header center">
+            <h2>Popüler Tekneler</h2>
+            <Link style={{ textAlign: "right" }} to={"/boats"}>
+              Tümünü Gör
+            </Link>
+          </div>
+
+          <div className="boat-list">
+            <div className="boat-item">
+              <div className="boat-image">
+                <img src={require("../assets/images/yat.png")} alt="" />
+                <span className="boat-status">İkinci El</span>
+              </div>
+              <div className="boat-content">
+                <div className="boat-info">
+                  <h3>Beneteau Oceanis TC Bayrak (2022)</h3>
+                  <span>Motor Yat | 26,7 m</span>
+                </div>
+                <div className="boat-price">
+                  <p className="price">329.000</p>
+                  <span>EUR</span>
+                </div>
+              </div>
+              <div className="boat-links">
+                <button className="btn-style">Teklif Al</button>
+                <a href="/" className="btn-style">
+                  Detaylı Bilgi
+                </a>
+              </div>
+            </div>
+
+            <div className="boat-item">
+              <div className="boat-image">
+                <img src={require("../assets/images/yat.png")} alt="" />
+                <span className="boat-status">İkinci El</span>
+              </div>
+              <div className="boat-content">
+                <div className="boat-info">
+                  <h3>Beneteau Oceanis TC Bayrak (2022)</h3>
+                  <span>Motor Yat | 26,7 m</span>
+                </div>
+                <div className="boat-price">
+                  <p className="price">329.000</p>
+                  <span>EUR</span>
+                </div>
+              </div>
+              <div className="boat-links">
+                <button className="btn-style">Teklif Al</button>
+                <a href="/" className="btn-style">
+                  Detaylı Bilgi
+                </a>
+              </div>
+            </div>
+
+            <div className="boat-item">
+              <div className="boat-image">
+                <img src={require("../assets/images/yat.png")} alt="" />
+                <span className="boat-status">İkinci El</span>
+              </div>
+              <div className="boat-content">
+                <div className="boat-info">
+                  <h3>Beneteau Oceanis TC Bayrak (2022)</h3>
+                  <span>Motor Yat | 26,7 m</span>
+                </div>
+                <div className="boat-price">
+                  <p className="price">329.000</p>
+                  <span>EUR</span>
+                </div>
+              </div>
+              <div className="boat-links">
+                <button className="btn-style">Teklif Al</button>
+                <a href="/" className="btn-style">
+                  Detaylı Bilgi
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+       {/* Tekne Kategorileri */}
+       <section className="boat-bg">
+        <div className="container">
+          <div className="boats-header mb-3">
+            <h2 className="text-white">Haberler </h2>
+            <Link to={"/"}>Tüm Tekneler</Link>
+          </div>
+
+          <NewsSlide />
         </div>
       </section>
     </>

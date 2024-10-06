@@ -27,6 +27,12 @@ img {
   transition: all 250ms;
 }
 
+.transparent-style {
+  background-color: transparent;
+  color: white;
+  border: 1px solid;
+}
+
 .text-white {
   color: white;
 }
@@ -588,4 +594,288 @@ body {
   .boats-body .boat-item.swiper-slide-active a {
     bottom: 1rem;
   }
+}
+
+/*  */
+
+.module-header {
+  display: flex;
+  align-items: start;
+  margin-bottom: 1.5rem;
+}
+
+.module-header.center {
+  align-items: center;
+}
+
+.module-header > * {
+  width: 50%;
+  margin: 0;
+}
+
+.module-header a {
+  color: black;
+  opacity: 0.8;
+  text-decoration: none;
+}
+
+.module-header a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.module-header p {
+  font-size: 0.85rem;
+}
+
+@media (max-width: 992px) {
+  .module-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    text-align: center;
+  }
+  .module-header > * {
+    width: 100%;
+  }
+}
+
+.image-list {
+  display: flex;
+  gap: 1rem;
+}
+
+.image-list > div {
+  width: calc((100% / 4) - 0.75rem);
+  border-radius: 1rem;
+  overflow: hidden;
+  height: 33rem;
+}
+
+.image-list img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 1200px) {
+  .image-list > div {
+    height: 25rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .image-list > div:nth-child(even) {
+    transform: translateY(2rem);
+  }
+}
+
+@media (max-width: 992px) {
+  .image-list {
+    flex-wrap: wrap;
+  }
+
+  .image-list > div {
+    width: calc((100% / 2) - 0.5rem);
+  }
+}
+
+@media (max-width: 576px) {
+  .image-list > div {
+    height: 17rem;
+  }
+}
+
+.boat-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.boat-item {
+  width: calc((100% / 3) - 0.67rem);
+  height: auto;
+  overflow: hidden;
+  box-shadow: 0 0 5px rgb(0, 0, 0, 0.5);
+  border-radius: 1rem;
+}
+
+.boat-image {
+  width: 100%;
+  height: 14rem;
+  position: relative;
+}
+
+.boat-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.boat-content * {
+  margin: 0;
+}
+
+.boat-content {
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.boat-content h3 {
+  font-size: 1.45rem;
+}
+
+.boat-info {
+  width: 100%;
+}
+.boat-price {
+  width: 7rem;
+}
+
+.boat-content span {
+  opacity: 0.7;
+  font-size: 0.85rem;
+}
+
+.boat-price .price {
+  color: var(--blue);
+  font-weight: 600;
+  font-size: 1.35rem;
+}
+
+.boat-price span {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--blue);
+}
+
+.boat-links {
+  padding: 1rem;
+
+  display: flex;
+  gap: 1rem;
+}
+
+.boat-links > * {
+  width: 100% !important;
+  text-align: center;
+}
+
+.boat-status {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  background-color: #16a1b7;
+  color: white;
+  padding: 0.3rem 1rem;
+  border-radius: 0 1rem 1rem 0;
+  font-size: 0.75rem;
+}
+
+@media (max-width: 1200px) {
+  .boat-content h3 {
+    font-size: 1.25rem;
+  }
+  .boat-price {
+    width: 5rem;
+  }
+
+  .boat-content span {
+    font-size: 0.75rem;
+  }
+
+  .boat-price .price {
+    font-size: 1.15rem;
+  }
+
+  .boat-price span {
+    font-size: 0.85rem;
+  }
+
+  .boat-image {
+    height: 12rem;
+  }
+
+  .boat-item .boat-links {
+    gap: 0.5rem;
+    padding-top: 0;
+  }
+
+  .boat-item .btn-style {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .boat-item {
+    width: calc(50% - 0.5rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .boat-item {
+    width: 100%;
+  }
+}
+
+.news-item {
+  width: 100%;
+  height: 25rem !important;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.news-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.news-item:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgb(0, 0, 0, 0.35);
+  z-index: 2;
+  top: 0;
+  left: 0;
+
+  transition: background-color 250ms;
+}
+
+.news-item-content {
+  position: relative;
+  padding: 1rem;
+  z-index: 5;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 2rem;
+
+  transition: gap 250ms;
+}
+
+.news-item-content * {
+  margin: 0;
+  color: white;
+}
+
+.news-item:hover:after {
+  background-color: rgb(0, 0, 0, 0.7);
+}
+
+.news-item:hover .news-item-content {
+  gap: 4rem;
 }
