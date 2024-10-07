@@ -303,8 +303,8 @@ export default function Home() {
         </div>
       </section>
 
-       {/* Tekne Kategorileri */}
-       <section className="boat-bg">
+      {/* Haberler */}
+      <section className="boat-bg more-mb">
         <div className="container">
           <div className="boats-header mb-3">
             <h2 className="text-white">Haberler </h2>
@@ -312,6 +312,22 @@ export default function Home() {
           </div>
 
           <NewsSlide />
+        </div>
+      </section>
+
+      <section className="newsletter_sec">
+        <div className="container">
+          <div className="newsletter_area">
+            <h2 className="text-center">
+              E-bültenimize abone olun; yenilikleri ilk siz öğrenin.
+            </h2>
+            <div>
+              <form>
+                <input type="text" placeholder="E-mail adresiniz" />
+                <button className="btn-style">Kayıt Ol</button>
+              </form>
+            </div>
+          </div>
         </div>
       </section>
     </>
