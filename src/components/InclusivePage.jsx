@@ -7,14 +7,16 @@ export default function InclusivePage() {
   const location = useLocation();
 
   useEffect(() => {
-    
-
     if (location.pathname === "/") {
       setPathName("Say Danışmanlık");
     } else if (location.pathname === "/about-us") {
-      setPathName("Hakkımızda");
+      setPathName("Hakkımızda | Say Danışmanlık");
+    } else if (location.pathname === "/boats") {
+      setPathName("Yatlar | Say Danışmanlık");
+    } else if (location.pathname === "/discover") {
+      setPathName("Keşfet | Say Danışmanlık");
     } else if (location.pathname === "/contact-us") {
-      setPathName("İletişim");
+      setPathName("İletişim | Say Danışmanlık");
     }
   }, [location, setPathName]);
 

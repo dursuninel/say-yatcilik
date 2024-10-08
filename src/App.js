@@ -6,6 +6,8 @@ import Home from "./pages/Home";
 import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
 import InclusivePage from "./components/InclusivePage";
+import Boats from "./pages/Boats";
+import Discover from "./pages/Discover";
 
 export default function App() {
   const router = createBrowserRouter([
@@ -25,23 +27,19 @@ export default function App() {
         },
         {
           path: "/about-us",
-          element: <InclusivePage pageTitle={"About Us"} />, // About Us sayfası başlığı
-          children: [
-            {
-              path: "/about-us",
-              element: <AboutUs />,
-            },
-          ],
+          element: <AboutUs />,
+        },
+        {
+          path: "/boats",
+          element: <Boats />,
+        },
+        {
+          path: "/discover",
+          element: <Discover />,
         },
         {
           path: "/contact-us",
-          element: <InclusivePage pageTitle={"Contact Us"} />, // Contact Us sayfası başlığı
-          children: [
-            {
-              path: "/contact-us",
-              element: <ContactUs />,
-            },
-          ],
+          element: <ContactUs />,
         },
       ],
     },

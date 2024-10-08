@@ -315,6 +315,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* E bülten */}
       <section className="newsletter_sec">
         <div className="container">
           <div className="newsletter_area">
@@ -326,6 +327,50 @@ export default function Home() {
                 <input type="text" placeholder="E-mail adresiniz" />
                 <button className="btn-style">Kayıt Ol</button>
               </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Keşfet */}
+      <section>
+        <div class="container">
+          <div className="boats-header mb-3">
+            <h2>Keşfet </h2>
+            <Link to={"/"} className="text-black">
+              Tümünü Gör
+            </Link>
+          </div>{" "}
+          <div class="announcements_main">
+            <div class="left">
+              <div class="item">
+                <img src={require("../assets/images/yat.png")} alt="Başlık" />
+                <div class="item_content">
+                  <span className="category">Kategori</span>
+
+                  <h3>Başlık</h3>
+                  <p>içerik</p>
+                  <a href="/duyuru/{{ data.link }}">Devamını Oku</a>
+                </div>
+              </div>
+            </div>
+            <div class="right">
+              <a href="/duyuru/{{ data.link }}" class="item">
+                <img src={require("../assets/images/boat2.png")} alt="Başlık" />
+                <div class="item_content">
+                  <span className="category">Kategori</span>
+                  <h3>Başlık</h3>
+                  <a href="/duyuru/{{ data.link }}">Devamını Oku</a>
+                </div>
+              </a>
+              <a href="/duyuru/{{ data.link }}" class="item">
+                <img src={require("../assets/images/boat3.png")} alt="Başlık" />
+                <div class="item_content">
+                  <span className="category">Kategori</span>
+                  <h3>Başlık</h3>
+                  <a href="/duyuru/{{ data.link }}">Devamını Oku</a>
+                </div>
+              </a>
             </div>
           </div>
         </div>

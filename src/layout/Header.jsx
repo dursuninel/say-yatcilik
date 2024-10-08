@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function Header() {
   return (
     <header>
-      {/* <ul>
+      <ul>
         <li>
           <Link to={"/"}>Anasayfa</Link>
         </li>
@@ -12,9 +12,16 @@ export default function Header() {
           <Link to={"/about-us"}>Hakkımızda</Link>
         </li>
         <li>
+          <Link to={"/boats"}>Yatlar</Link>
+        </li>
+        <li>
+          <Link to={"/discover"}>Keşfet</Link>
+        </li>
+
+        <li>
           <Link to={"/contact-us"}>İletişim</Link>
         </li>
-      </ul> */}
+      </ul>
     </header>
   );
 }
