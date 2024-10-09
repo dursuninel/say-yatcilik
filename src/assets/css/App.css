@@ -1077,7 +1077,7 @@ body {
   height: auto;
 }
 
-.announcements_main > .item:first-child {
+.announcements_main:not(.list) > .item:first-child {
   width: 100%;
 }
 

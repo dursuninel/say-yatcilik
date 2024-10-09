@@ -1,11 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function PageBanner({ breadpoint, title }) {
+export default function PageBanner({ breadpoint, title, content, image }) {
   return (
     <>
       <section className="page_banner">
-        <img src={require("../assets/images/pagebanner.png")} alt="" />
+        <img
+          src={image ? image : require("../assets/images/pagebanner.png")}
+          alt=""
+        />
         <div className="container page_banner_content">
           <ul className="breadpoint">
             {breadpoint.map((item, key) => {
@@ -22,6 +25,8 @@ export default function PageBanner({ breadpoint, title }) {
           </ul>
 
           <h1>{title}</h1>
+
+          {content && <div className="mt-4">{content}</div>}
         </div>
       </section>
     </>

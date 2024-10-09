@@ -8,6 +8,7 @@ import ContactUs from "./pages/ContactUs";
 import InclusivePage from "./components/InclusivePage";
 import Boats from "./pages/Boats";
 import Discover from "./pages/Discover";
+import DiscoverDetail from "./pages/DiscoverDetail";
 
 export default function App() {
   const router = createBrowserRouter([
@@ -36,6 +37,10 @@ export default function App() {
         {
           path: "/discover",
           element: <Discover />,
+        },
+        {
+          path: "/discover-detail",
+          element: <DiscoverDetail />,
         },
         {
           path: "/contact-us",
