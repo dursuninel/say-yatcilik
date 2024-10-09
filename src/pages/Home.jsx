@@ -350,25 +350,25 @@ export default function Home() {
 
                   <h3>Başlık</h3>
                   <p>içerik</p>
-                  <Link to="/duyuru/">Devamını Oku</Link>
+                  <Link to="/">Devamını Oku</Link>
                 </div>
               </div>
             </div>
             <div className="right">
-              <Link to="/duyuru/" className="item">
+              <Link to="/" className="item">
                 <img src={require("../assets/images/boat2.png")} alt="Başlık" />
                 <div className="item_content">
                   <span className="category">Kategori</span>
                   <h3>Başlık</h3>
-                  <Link to="/duyuru/">Devamını Oku</Link>
+                  <Link to="/">Devamını Oku</Link>
                 </div>
               </Link>
-              <Link to="/duyuru/" className="item">
+              <Link to="/" className="item">
                 <img src={require("../assets/images/boat3.png")} alt="Başlık" />
                 <div className="item_content">
                   <span className="category">Kategori</span>
                   <h3>Başlık</h3>
-                  <Link to="/duyuru/">Devamını Oku</Link>
+                  <Link to="/">Devamını Oku</Link>
                 </div>
               </Link>
             </div>

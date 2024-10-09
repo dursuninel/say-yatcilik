@@ -22,7 +22,7 @@ export default function Discover() {
 
                 <h3>Başlık</h3>
                 <p>içerik</p>
-                <a href="/duyuru/{{ data.link }}">Devamını Oku</a>
+                <a href="/">Devamını Oku</a>
               </div>
             </div>
 
@@ -32,7 +32,7 @@ export default function Discover() {
                 <span className="category">Kategori</span>
 
                 <h3>Başlık</h3>
-                <a href="/duyuru/{{ data.link }}">Devamını Oku</a>
+                <a href="/">Devamını Oku</a>
               </div>
             </div>
 
@@ -42,7 +42,7 @@ export default function Discover() {
                 <span className="category">Kategori</span>
 
                 <h3>Başlık</h3>
-                <a href="/duyuru/{{ data.link }}">Devamını Oku</a>
+                <a href="/">Devamını Oku</a>
               </div>
             </div>
 
@@ -52,7 +52,7 @@ export default function Discover() {
                 <span className="category">Kategori</span>
 
                 <h3>Başlık</h3>
-                <a href="/duyuru/{{ data.link }}">Devamını Oku</a>
+                <a href="/">Devamını Oku</a>
               </div>
             </div>
           </div>
