@@ -95,7 +95,7 @@ export default function Footer() {
             </div>
             <hr />
             <div className="copyright-flex">
-              <p>© 2024 Üsküdar Kulüpler Birliği, Tüm Hakları Saklıdır.</p>
+              <p>© 2024 Say Danışmanlık, Tüm Hakları Saklıdır.</p>
             </div>
           </div>
         </div>
