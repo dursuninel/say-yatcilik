@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import BoatSearchForm from "../components/forms/BoatSearchForm";
 // import { Swiper, SwiperSlide } from "swiper/react";
@@ -248,9 +248,9 @@ export default function Home() {
               </div>
               <div className="boat-links">
                 <button className="btn-style">Teklif Al</button>
-                <a href="/" className="btn-style">
+                <Link to="/" className="btn-style">
                   Detaylı Bilgi
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -271,9 +271,9 @@ export default function Home() {
               </div>
               <div className="boat-links">
                 <button className="btn-style">Teklif Al</button>
-                <a href="/" className="btn-style">
+                <Link to="/" className="btn-style">
                   Detaylı Bilgi
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -294,9 +294,9 @@ export default function Home() {
               </div>
               <div className="boat-links">
                 <button className="btn-style">Teklif Al</button>
-                <a href="/" className="btn-style">
+                <Link to="/" className="btn-style">
                   Detaylı Bilgi
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -334,43 +334,43 @@ export default function Home() {
 
       {/* Keşfet */}
       <section>
-        <div class="container">
+        <div className="container">
           <div className="boats-header mb-3">
             <h2>Keşfet </h2>
             <Link to={"/"} className="text-black">
               Tümünü Gör
             </Link>
           </div>{" "}
-          <div class="announcements_main">
-            <div class="left">
-              <div class="item">
+          <div className="announcements_main">
+            <div className="left">
+              <div className="item">
                 <img src={require("../assets/images/yat.png")} alt="Başlık" />
-                <div class="item_content">
+                <div className="item_content">
                   <span className="category">Kategori</span>
 
                   <h3>Başlık</h3>
                   <p>içerik</p>
-                  <a href="/duyuru/{{ data.link }}">Devamını Oku</a>
+                  <Link to="/duyuru/">Devamını Oku</Link>
                 </div>
               </div>
             </div>
-            <div class="right">
-              <a href="/duyuru/{{ data.link }}" class="item">
+            <div className="right">
+              <Link to="/duyuru/" className="item">
                 <img src={require("../assets/images/boat2.png")} alt="Başlık" />
-                <div class="item_content">
+                <div className="item_content">
                   <span className="category">Kategori</span>
                   <h3>Başlık</h3>
-                  <a href="/duyuru/{{ data.link }}">Devamını Oku</a>
+                  <Link to="/duyuru/">Devamını Oku</Link>
                 </div>
-              </a>
-              <a href="/duyuru/{{ data.link }}" class="item">
+              </Link>
+              <Link to="/duyuru/" className="item">
                 <img src={require("../assets/images/boat3.png")} alt="Başlık" />
-                <div class="item_content">
+                <div className="item_content">
                   <span className="category">Kategori</span>
                   <h3>Başlık</h3>
-                  <a href="/duyuru/{{ data.link }}">Devamını Oku</a>
+                  <Link to="/duyuru/">Devamını Oku</Link>
                 </div>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

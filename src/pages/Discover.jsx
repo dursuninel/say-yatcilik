@@ -13,11 +13,11 @@ export default function Discover() {
 
       {/* Keşfet */}
       <section>
-        <div class="container">
-          <div class="announcements_main">
-            <div class="item">
+        <div className="container">
+          <div className="announcements_main">
+            <div className="item">
               <img src={require("../assets/images/yat.png")} alt="Başlık" />
-              <div class="item_content">
+              <div className="item_content">
                 <span className="category">Kategori</span>
 
                 <h3>Başlık</h3>
@@ -26,9 +26,9 @@ export default function Discover() {
               </div>
             </div>
 
-            <div class="item">
+            <div className="item">
               <img src={require("../assets/images/yat.png")} alt="Başlık" />
-              <div class="item_content">
+              <div className="item_content">
                 <span className="category">Kategori</span>
 
                 <h3>Başlık</h3>
@@ -36,9 +36,9 @@ export default function Discover() {
               </div>
             </div>
 
-            <div class="item">
+            <div className="item">
               <img src={require("../assets/images/yat.png")} alt="Başlık" />
-              <div class="item_content">
+              <div className="item_content">
                 <span className="category">Kategori</span>
 
                 <h3>Başlık</h3>
@@ -46,9 +46,9 @@ export default function Discover() {
               </div>
             </div>
 
-            <div class="item">
+            <div className="item">
               <img src={require("../assets/images/yat.png")} alt="Başlık" />
-              <div class="item_content">
+              <div className="item_content">
                 <span className="category">Kategori</span>
 
                 <h3>Başlık</h3>
