@@ -1,0 +1,17 @@
+{
+  "home": {
+    "banner_title": "Find Your Dream Boat"
+  },
+  "header": {
+    "home": "Home",
+    "about_us": "About Us",
+    "boats": "Boats",
+    "discover": "Discover",
+    "contact_us": "Contact Us",
+    "language": "Language",
+    "language_options": {
+      "tr": "Turkish",
+      "en": "English"
+    }
+  }
+}

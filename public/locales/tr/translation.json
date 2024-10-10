@@ -1,0 +1,17 @@
+{
+  "home": {
+    "banner_title": "Hayalindeki Tekneyi Bul"
+  },
+  "header": {
+    "home": "Anasayfa",
+    "about_us": "Hakkımızda",
+    "boats": "Yatlar",
+    "discover": "Keşfet",
+    "contact_us": "İletişim",
+    "language": "Dil",
+    "language_options": {
+      "tr": "Türkçe",
+      "en": "İngilizce"
+    }
+  }
+}

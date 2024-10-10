@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import BoatSearchForm from "../components/forms/BoatSearchForm";
 // import { Swiper, SwiperSlide } from "swiper/react";
@@ -6,6 +6,8 @@ import BoatSearchForm from "../components/forms/BoatSearchForm";
 import AboutSlide from "../components/AboutSlide";
 import BoatsSlide from "../components/BoatsSlide";
 import NewsSlide from "../components/NewsSlide";
+import { ApiContext } from "../context/ApiContext";
+import { useTranslation } from "react-i18next";
 
 const words = [
   "SANLORENZO",
@@ -20,6 +22,9 @@ const words = [
 ];
 
 export default function Home() {
+  const { apiControl, setApiControl } = useContext(ApiContext);
+  const { t } = useTranslation();
+
   return (
     <>
       {/* Banner */}
@@ -30,7 +35,7 @@ export default function Home() {
           <div className="container">
             <div className="banner-form-area">
               <div className="form-header">
-                <h2>Hayalindeki Tekneyi Bul</h2>
+                <h2>{t("home.banner_title")}</h2>
                 <span>
                   {" "}
                   <Link>İkinci El</Link> | <Link>Tüm Tekneler</Link>{" "}
@@ -51,40 +56,83 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Hakkımızda */}
+      {/* Popüler Tekneler */}
       <section>
         <div className="container">
-          <div className="row align-items-center">
-            <div className="col-md-6">
-              <div className="about-left">
-                <h2>Say Danışmanlık Hakkında</h2>
-                <div className="content">
-                  <p>
-                    Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır
-                    metinlerdir. Lorem Ipsum, adı bilinmeyen bir matbaacının bir
-                    hurufat numune kitabı oluşturmak üzere bir yazı galerisini
-                    alarak karıştırdığı 1500'lerden beri endüstri standardı
-                    sahte metinler olarak kullanılmıştır.
-                  </p>
+          <div className="module-header center">
+            <h2>Popüler Tekneler</h2>
+            <Link style={{ textAlign: "right" }} to={"/boats"}>
+              Tümünü Gör
+            </Link>
+          </div>
 
-                  <p>
-                    Boyunca varlığını sürdürmekle kalmamış, aynı zamanda pek
-                    değişmeden elektronik dizgiye de sıçramıştır. 1960'larda
-                    Lorem Ipsum pasajları da içeren Letraset yapraklarının
-                    yayınlanması ile ve yakın zamanda Aldus PageMaker gibi Lorem
-                    Ipsum sürümleri içeren masaüstü yayıncılık yazılımları ile
-                    popüler olmuştur.
-                  </p>
+          <div className="boat-list">
+            <div className="boat-item">
+              <div className="boat-image">
+                <img src={require("../assets/images/yat.png")} alt="" />
+                <span className="boat-status">İkinci El</span>
+              </div>
+              <div className="boat-content">
+                <div className="boat-info">
+                  <h3>Beneteau Oceanis TC Bayrak (2022)</h3>
+                  <span>Motor Yat | 26,7 m</span>
                 </div>
-
-                <Link to={"/hakkimizda"} className="btn-style">
-                  Daha Fazla
+                <div className="boat-price">
+                  <p className="price">329.000</p>
+                  <span>EUR</span>
+                </div>
+              </div>
+              <div className="boat-links">
+                <button className="btn-style">Teklif Al</button>
+                <Link to="/" className="btn-style">
+                  Detaylı Bilgi
                 </Link>
               </div>
             </div>
-            <div className="col-md-6 about-mobile-right">
-              <div className="about-right">
-                <AboutSlide />
+
+            <div className="boat-item">
+              <div className="boat-image">
+                <img src={require("../assets/images/yat.png")} alt="" />
+                <span className="boat-status">İkinci El</span>
+              </div>
+              <div className="boat-content">
+                <div className="boat-info">
+                  <h3>Beneteau Oceanis TC Bayrak (2022)</h3>
+                  <span>Motor Yat | 26,7 m</span>
+                </div>
+                <div className="boat-price">
+                  <p className="price">329.000</p>
+                  <span>EUR</span>
+                </div>
+              </div>
+              <div className="boat-links">
+                <button className="btn-style">Teklif Al</button>
+                <Link to="/" className="btn-style">
+                  Detaylı Bilgi
+                </Link>
+              </div>
+            </div>
+
+            <div className="boat-item">
+              <div className="boat-image">
+                <img src={require("../assets/images/yat.png")} alt="" />
+                <span className="boat-status">İkinci El</span>
+              </div>
+              <div className="boat-content">
+                <div className="boat-info">
+                  <h3>Beneteau Oceanis TC Bayrak (2022)</h3>
+                  <span>Motor Yat | 26,7 m</span>
+                </div>
+                <div className="boat-price">
+                  <p className="price">329.000</p>
+                  <span>EUR</span>
+                </div>
+              </div>
+              <div className="boat-links">
+                <button className="btn-style">Teklif Al</button>
+                <Link to="/" className="btn-style">
+                  Detaylı Bilgi
+                </Link>
               </div>
             </div>
           </div>
@@ -220,89 +268,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Popüler Tekneler */}
-      <section>
-        <div className="container">
-          <div className="module-header center">
-            <h2>Popüler Tekneler</h2>
-            <Link style={{ textAlign: "right" }} to={"/boats"}>
-              Tümünü Gör
-            </Link>
-          </div>
-
-          <div className="boat-list">
-            <div className="boat-item">
-              <div className="boat-image">
-                <img src={require("../assets/images/yat.png")} alt="" />
-                <span className="boat-status">İkinci El</span>
-              </div>
-              <div className="boat-content">
-                <div className="boat-info">
-                  <h3>Beneteau Oceanis TC Bayrak (2022)</h3>
-                  <span>Motor Yat | 26,7 m</span>
-                </div>
-                <div className="boat-price">
-                  <p className="price">329.000</p>
-                  <span>EUR</span>
-                </div>
-              </div>
-              <div className="boat-links">
-                <button className="btn-style">Teklif Al</button>
-                <Link to="/" className="btn-style">
-                  Detaylı Bilgi
-                </Link>
-              </div>
-            </div>
-
-            <div className="boat-item">
-              <div className="boat-image">
-                <img src={require("../assets/images/yat.png")} alt="" />
-                <span className="boat-status">İkinci El</span>
-              </div>
-              <div className="boat-content">
-                <div className="boat-info">
-                  <h3>Beneteau Oceanis TC Bayrak (2022)</h3>
-                  <span>Motor Yat | 26,7 m</span>
-                </div>
-                <div className="boat-price">
-                  <p className="price">329.000</p>
-                  <span>EUR</span>
-                </div>
-              </div>
-              <div className="boat-links">
-                <button className="btn-style">Teklif Al</button>
-                <Link to="/" className="btn-style">
-                  Detaylı Bilgi
-                </Link>
-              </div>
-            </div>
-
-            <div className="boat-item">
-              <div className="boat-image">
-                <img src={require("../assets/images/yat.png")} alt="" />
-                <span className="boat-status">İkinci El</span>
-              </div>
-              <div className="boat-content">
-                <div className="boat-info">
-                  <h3>Beneteau Oceanis TC Bayrak (2022)</h3>
-                  <span>Motor Yat | 26,7 m</span>
-                </div>
-                <div className="boat-price">
-                  <p className="price">329.000</p>
-                  <span>EUR</span>
-                </div>
-              </div>
-              <div className="boat-links">
-                <button className="btn-style">Teklif Al</button>
-                <Link to="/" className="btn-style">
-                  Detaylı Bilgi
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Haberler */}
       <section className="boat-bg more-mb">
         <div className="container">
@@ -343,26 +308,29 @@ export default function Home() {
           </div>{" "}
           <div className="announcements_main">
             <div className="left">
-              <div className="item">
-                <img src={require("../assets/images/yat.png")} alt="Başlık" />
-                <div className="item_content">
-                  <span className="category">Kategori</span>
+              {apiControl.discover.value.length > 0 &&
+                apiControl.discover.value.map((item, key) => (
+                  <div className="item">
+                    <img src={item.image} alt={item.title} />
+                    <div className="item_content">
+                      <span className="category">{item.category}</span>
 
-                  <h3>Başlık</h3>
-                  <p>içerik</p>
-                  <Link to="/">Devamını Oku</Link>
-                </div>
-              </div>
+                      <h3>{item.title}</h3>
+                      <p>{item.content}</p>
+                      <Link to={`/discover/${item.link}`}>Devamını Oku</Link>
+                    </div>
+                  </div>
+                ))}
             </div>
             <div className="right">
-              <Link to="/" className="item">
+              <div className="item">
                 <img src={require("../assets/images/boat2.png")} alt="Başlık" />
                 <div className="item_content">
                   <span className="category">Kategori</span>
                   <h3>Başlık</h3>
                   <Link to="/">Devamını Oku</Link>
                 </div>
-              </Link>
+              </div>
               <Link to="/" className="item">
                 <img src={require("../assets/images/boat3.png")} alt="Başlık" />
                 <div className="item_content">
@@ -371,6 +339,46 @@ export default function Home() {
                   <Link to="/">Devamını Oku</Link>
                 </div>
               </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Hakkımızda */}
+      <section>
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-md-6">
+              <div className="about-left">
+                <h2>Say Danışmanlık Hakkında</h2>
+                <div className="content">
+                  <p>
+                    Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır
+                    metinlerdir. Lorem Ipsum, adı bilinmeyen bir matbaacının bir
+                    hurufat numune kitabı oluşturmak üzere bir yazı galerisini
+                    alarak karıştırdığı 1500'lerden beri endüstri standardı
+                    sahte metinler olarak kullanılmıştır.
+                  </p>
+
+                  <p>
+                    Boyunca varlığını sürdürmekle kalmamış, aynı zamanda pek
+                    değişmeden elektronik dizgiye de sıçramıştır. 1960'larda
+                    Lorem Ipsum pasajları da içeren Letraset yapraklarının
+                    yayınlanması ile ve yakın zamanda Aldus PageMaker gibi Lorem
+                    Ipsum sürümleri içeren masaüstü yayıncılık yazılımları ile
+                    popüler olmuştur.
+                  </p>
+                </div>
+
+                <Link to={"/hakkimizda"} className="btn-style">
+                  Daha Fazla
+                </Link>
+              </div>
+            </div>
+            <div className="col-md-6 about-mobile-right">
+              <div className="about-right">
+                <AboutSlide />
+              </div>
             </div>
           </div>
         </div>

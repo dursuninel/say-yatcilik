@@ -1,50 +1,85 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./pages/Home";
-import AboutUs from "./pages/AboutUs";
-import ContactUs from "./pages/ContactUs";
-import InclusivePage from "./components/InclusivePage";
-import Boats from "./pages/Boats";
-import Discover from "./pages/Discover";
-import DiscoverDetail from "./pages/DiscoverDetail";
+import { useTranslation } from "react-i18next";
+
+// Lazy loading for pages
+const Home = lazy(() => import("./pages/Home"));
+const AboutUs = lazy(() => import("./pages/AboutUs"));
+const ContactUs = lazy(() => import("./pages/ContactUs"));
+const InclusivePage = lazy(() => import("./components/InclusivePage"));
+const Boats = lazy(() => import("./pages/Boats"));
+const Discover = lazy(() => import("./pages/Discover"));
+const DiscoverDetail = lazy(() => import("./pages/DiscoverDetail"));
 
 export default function App() {
+  const { i18n } = useTranslation();
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
+
   const router = createBrowserRouter([
     {
       path: "/",
       element: (
         <>
-          <Header />
-          <InclusivePage />
+          <Header changeDomLanguage={changeLanguage} />
+          <Suspense fallback={<div className="loader">Yükleniyor</div>}>
+            <InclusivePage />
+          </Suspense>
           <Footer />
         </>
-      ), // Ana sayfa başlığı
+      ),
       children: [
         {
           path: "/",
-          element: <Home />,
+          element: (
+            <>
+              <Home />
+            </>
+          ),
         },
         {
           path: "/about-us",
-          element: <AboutUs />,
+          element: (
+            <>
+              <AboutUs />
+            </>
+          ),
         },
         {
           path: "/boats",
-          element: <Boats />,
+          element: (
+            <>
+              <Boats />
+            </>
+          ),
         },
         {
           path: "/discover",
-          element: <Discover />,
+          element: (
+            <>
+              <Discover />
+            </>
+          ),
         },
         {
           path: "/discover-detail",
-          element: <DiscoverDetail />,
+          element: (
+            <>
+              <DiscoverDetail />
+            </>
+          ),
         },
         {
           path: "/contact-us",
-          element: <ContactUs />,
+          element: (
+            <>
+              <ContactUs />
+            </>
+          ),
         },
       ],
     },

@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useLanguage } from "../context/LanguageContext";
+import { useTranslation } from "react-i18next";
 
-export default function Header() {
+export default function Header({ changeDomLanguage }) {
   const [menu, setMenu] = useState(false);
+  const { languages, changeLanguage } = useLanguage();
+  const { t } = useTranslation();
 
   const { pathname } = useLocation();
 
@@ -26,9 +30,20 @@ export default function Header() {
           </div>
           <div className="lang-main">
             <p className="lang-links">
-              <span className="link">TR</span>
-              <span>|</span>
-              <span className="link">EN</span>
+              {languages.map((data, key) => (
+                <span
+                  key={key}
+                  className="link"
+                  onClick={() => {
+                    changeLanguage(data.id);
+                    changeDomLanguage(data.code);
+                  }}
+                >
+                  {data.title}
+                </span>
+              ))}
+              {/* <span>|</span> */}
+              {/* <span className="link">EN</span> */}
             </p>
 
             <div>
@@ -49,28 +64,28 @@ export default function Header() {
         <div className="header-overlay" onClick={() => setMenu(false)} />
         <ul>
           <li>
-            <Link to={"/"} title="Anasayfa">
-              Anasayfa
+            <Link to={``} title={t("header.home")}>
+              {t("header.home")}
             </Link>
           </li>
           <li>
-            <Link to={"/about-us"} title="Hakkımızda">
-              Hakkımızda
+            <Link to={`/about-us`} title={t("header.about_us")}>
+              {t("header.about_us")}
             </Link>
           </li>
           <li>
-            <Link to={"/boats"} title="Yatlar">
-              Yatlar
+            <Link to={`/boats`} title={t("header.boats")}>
+              {t("header.boats")}
             </Link>
           </li>
           <li>
-            <Link to={"/discover"} title="Keşfet">
-              Keşfet
+            <Link to={`/discover`} title={t("header.discover")}>
+              {t("header.discover")}
             </Link>
           </li>
           <li>
-            <Link to={"/contact-us"} title="İletişim">
-              İletişim
+            <Link to={`/contact-us`} title={t("header.contact_us")}>
+              {t("header.contact_us")}
             </Link>
           </li>
         </ul>

@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 
 export const GlobalContext = createContext();
 
+
 export const GlobalProvider = (props) => {
   const [pathName, setPathName] = useState(document.title);
 

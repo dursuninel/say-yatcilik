@@ -11,10 +11,16 @@ import "swiper/css/effect-fade";
 
 import { GlobalProvider } from "./context/GlobalContext";
 import App from "./App";
+import { ApiProvider } from "./context/ApiContext";
+import { LanguageProvider } from "./context/LanguageContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <GlobalProvider>
-    <App />
-  </GlobalProvider>
+  <LanguageProvider>
+    <ApiProvider>
+      <GlobalProvider>
+        <App />
+      </GlobalProvider>
+    </ApiProvider>
+  </LanguageProvider>
 );
