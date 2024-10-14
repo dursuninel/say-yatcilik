@@ -1,11 +1,15 @@
 {
   "home": {
-    "banner_title": "Hayalindeki Tekneyi Bul"
+    "banner_title": "Hayalindeki Tekneyi Bul",
+    "boat_type": "Tekne Tipi",
+    "boat_height": "Boy",
+    "boat_price": "Fiyat"
   },
   "header": {
     "home": "Anasayfa",
     "about_us": "Hakkımızda",
     "boats": "Yatlar",
+    "news": "Haberler",
     "discover": "Keşfet",
     "contact_us": "İletişim",
     "language": "Dil",
@@ -13,5 +17,54 @@
       "tr": "Türkçe",
       "en": "İngilizce"
     }
+  },
+  "global": {
+    "copyright": "© 2024 Say Danışmanlık, Tüm Hakları Saklıdır.",
+    "phone": "Telefon",
+    "email": "E-mail",
+    "social": "Sosyal Medya"
+  },
+  "banners": {
+    "home": "Anasayfa",
+    "about_banner": "Hakkımızda",
+    "boats_banner": "Yatlar",
+    "news_banner": "Haberler",
+    "discover_banner": "Keşfet",
+    "contact_banner": "İletişim"
+  },
+  "common": {
+    "read_more": "Devamını Oku",
+    "detail_info": "Detaylı Bilgi",
+    "get_quote": "Teklif Al",
+    "more": "Daha Fazla"
+  },
+  "module_banner": {
+    "boats_title": "Tarzınızı Seçin",
+    "boats_link": "Tüm Tekneler",
+    "populer_boats_title": "Popüler Tekneler",
+    "see_all": "Tümünü Gör",
+    "boat_brands": "Tekne Markalarının <br /> Popüler Temsilcisi",
+    "exp_title": "Say Danışmanlık Deneyimi",
+    "exp_text": "İhtiyacınızın ve isteklerinizin sınırı ne olursa olsun huzurlu bir tekne tatili vadederek her türden denizciye uygun alternatifler sunmayı hedefliyoruz.",
+    "news_title": "Haberler",
+    "discover_title": "Keşfet"
+  },
+  "status": {
+    "news": "Sıfır",
+    "no_new": "İkinci El"
+  },
+  "form": {
+    "name": "Adınız Soyadınız",
+    "email": "Email Adresiniz",
+    "phone": "Telefon Numaranız",
+    "message": "Mesajınızı",
+    "send": "Gönder",
+    "title": "Bize Ulaşın",
+    "news": "E-bültenimize abone olun; yenilikleri ilk siz öğrenin.",
+    "register": "Kayıt Ol"
+  },
+  "loads": {
+    "global_load": "Yükleniyor",
+    "discover_load": "Blog Yükleniyor"
   }
 }

@@ -1,11 +1,15 @@
 {
   "home": {
-    "banner_title": "Find Your Dream Boat"
+    "banner_title": "Find Your Dream Boat",
+    "boat_type": "Boat Type",
+    "boat_height": "Length",
+    "boat_price": "Price"
   },
   "header": {
     "home": "Home",
     "about_us": "About Us",
-    "boats": "Boats",
+    "boats": "Yachts",
+    "news": "News",
     "discover": "Discover",
     "contact_us": "Contact Us",
     "language": "Language",
@@ -13,5 +17,54 @@
       "tr": "Turkish",
       "en": "English"
     }
+  },
+  "global": {
+    "copyright": "© 2024 Say Danışmanlık, All Rights Reserved.",
+    "phone": "Phone",
+    "email": "Email",
+    "social": "Social Media"
+  },
+  "banners": {
+    "home": "Home",
+    "about_banner": "About Us",
+    "boats_banner": "Yachts",
+    "news_banner": "News",
+    "discover_banner": "Discover",
+    "contact_banner": "Contact"
+  },
+  "common": {
+    "read_more": "Read More",
+    "detail_info": "Detailed Info",
+    "get_quote": "Get a Quote",
+    "more": "More"
+  },
+  "module_banner": {
+    "boats_title": "Choose Your Style",
+    "boats_link": "All Boats",
+    "populer_boats_title": "Popular Boats",
+    "see_all": "See All",
+    "boat_brands": "The Popular Representative of <br /> Boat Brands",
+    "exp_title": "Say Consultancy Experience",
+    "exp_text": "No matter the limit of your needs and desires, we aim to offer alternatives suitable for every type of sailor by promising a peaceful boat holiday.",
+    "news_title": "News",
+    "discover_title": "Discover"
+  },
+  "status": {
+    "news": "New",
+    "no_new": "Second Hand"
+  },
+  "form": {
+    "name": "Your Name and Surname",
+    "email": "Your Email Address",
+    "phone": "Your Phone Number",
+    "message": "Your Message",
+    "send": "Send",
+    "title": "Contact Us",
+    "news": "Subscribe to our newsletter to be the first to know about updates.",
+    "register": "Register"
+  },
+  "loads": {
+    "global_load": "Loading",
+    "discover_load": "Blog Loading"
   }
 }

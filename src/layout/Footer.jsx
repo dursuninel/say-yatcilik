@@ -1,7 +1,11 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
+  const { t } = useTranslation();
+
+
   return (
     <>
       <footer>
@@ -9,7 +13,7 @@ export default function Footer() {
           <div className="container">
             <div className="footer-flex">
               <div>
-                <p className="title">Telefon</p>
+                <p className="title">{t("global.phone")}</p>
                 <ul>
                   <li>
                     <a href="/">+90 123 456 789</a>
@@ -17,7 +21,7 @@ export default function Footer() {
                 </ul>
               </div>
               <div>
-                <p className="title">E-mail</p>
+                <p className="title">{t("global.email")}</p>
                 <ul>
                   <li>
                     <a href="/">info@saydanismanlik.com</a>
@@ -26,7 +30,7 @@ export default function Footer() {
               </div>
 
               <div>
-                <p className="title">Sosyal Medya</p>
+                <p className="title">{t("global.social")}</p>
                 <ul className="social_media">
                   <li>
                     <a href="/">
@@ -72,30 +76,36 @@ export default function Footer() {
               <div>
                 <ul>
                   <li>
-                    <Link to="/" title="Anasayfa">Anasayfa</Link>
+                    <Link to="/" title={t("header.home")}>{t("header.home")}</Link>
                   </li>
 
                   <li>
-                    <Link to="/about-us" title="Hakkımızda">Hakkımızda</Link>
+                    <Link to="/about-us" title={t("header.about_us")}>{t("header.about_us")}</Link>
                   </li>
 
                   <li>
-                    <Link to="/boats" title="Yatlar">Yatlar</Link>
+                    <Link to="/boats" title={t("header.boats")}>{t("header.boats")}</Link>
                   </li>
 
                   <li>
-                    <Link to="/discover" title="Keşfet">Keşfet</Link>
+                    <Link to="/news" title={t("header.news")}>{t("header.news")}</Link>
                   </li>
 
                   <li>
-                    <Link to="/contact-us" title="İletişim">İletişim</Link>
+                    <Link to="/discover" title={t("header.discover")}>{t("header.discover")}</Link>
+                  </li>
+
+                  <li>
+                    <Link to="/contact-us" title={t("header.contact_us")}>{t("header.contact_us")}</Link>
                   </li>
                 </ul>
               </div>
             </div>
             <hr />
             <div className="copyright-flex">
-              <p>© 2024 Say Danışmanlık, Tüm Hakları Saklıdır.</p>
+              <p>
+                {t("global.copyright")}
+              </p>
             </div>
           </div>
         </div>

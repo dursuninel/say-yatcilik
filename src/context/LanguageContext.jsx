@@ -1,10 +1,13 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
 import i18n from "../i18n";
+import Loader from "../components/Loader";
 
 // Dil için context oluşturma
 const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
+  const [loadPage, setLoadPage] = useState(false);
+
   const languagesData = [
     {
       id: 1,
@@ -39,15 +42,20 @@ export const LanguageProvider = ({ children }) => {
   }, [activeLanguage]);
 
   const changeLanguage = (id) => {
+    setLoadPage(true);
     const selectedLanguage = languages.find((lang) => lang.id === id);
     if (selectedLanguage) {
       localStorage.setItem("selectedLanguage", selectedLanguage.code);
       setActiveLanguage(selectedLanguage);
+      window.location.reload();
     }
   };
 
   return (
-    <LanguageContext.Provider value={{ activeLanguage, languages, changeLanguage }}>
+    <LanguageContext.Provider
+      value={{ activeLanguage, languages, changeLanguage }}
+    >
+      {loadPage && <Loader>Dil Değiştiriliyor</Loader>}
       {children}
     </LanguageContext.Provider>
   );

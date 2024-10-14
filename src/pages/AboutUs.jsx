@@ -2,13 +2,19 @@ import React from "react";
 import PageBanner from "../components/PageBanner";
 import AboutSlide from "../components/AboutSlide";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function AboutUs() {
+  const { t } = useTranslation();
+
   return (
     <>
       <PageBanner
-        title={"Hakkımızda"}
-        breadpoint={[{ title: "Anasayfa", link: "/" }, { title: "Hakkımızda" }]}
+        title={t("banners.about_banner")}
+        breadpoint={[
+          { title: t("banners.home"), link: "/" },
+          { title: t("banners.about_banner") },
+        ]}
       />
 
       {/* Hakkımızda */}
@@ -55,8 +61,8 @@ export default function AboutUs() {
         </div>
       </section>
 
-       {/* Tekne Görseli */}
-       <section style={{ marginTop: "6rem" }}>
+      {/* Tekne Görseli */}
+      <section style={{ marginTop: "6rem" }}>
         <div className="container">
           <img
             src={require("../assets/images/yat.png")}
@@ -67,8 +73,8 @@ export default function AboutUs() {
         </div>
       </section>
 
-     {/* Say Danışmanlık Deneyimi */}
-     <section>
+      {/* Say Danışmanlık Deneyimi */}
+      <section>
         <div className="container">
           <div className="module-header">
             <h2>Say Danışmanlık Deneyimi</h2>

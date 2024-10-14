@@ -3,6 +3,8 @@ import Header from "./layout/Header";
 import Footer from "./layout/Footer";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import Loader from "./components/Loader";
+import News from "./pages/News";
 
 // Lazy loading for pages
 const Home = lazy(() => import("./pages/Home"));
@@ -14,7 +16,7 @@ const Discover = lazy(() => import("./pages/Discover"));
 const DiscoverDetail = lazy(() => import("./pages/DiscoverDetail"));
 
 export default function App() {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
@@ -26,7 +28,7 @@ export default function App() {
       element: (
         <>
           <Header changeDomLanguage={changeLanguage} />
-          <Suspense fallback={<div className="loader">Yükleniyor</div>}>
+          <Suspense fallback={<Loader>{t("loads.global_load")}</Loader>}>
             <InclusivePage />
           </Suspense>
           <Footer />
@@ -58,6 +60,14 @@ export default function App() {
           ),
         },
         {
+          path: "/news",
+          element: (
+            <>
+              <News />
+            </>
+          ),
+        },
+        {
           path: "/discover",
           element: (
             <>
@@ -66,7 +76,7 @@ export default function App() {
           ),
         },
         {
-          path: "/discover-detail",
+          path: "/discover/:link",
           element: (
             <>
               <DiscoverDetail />

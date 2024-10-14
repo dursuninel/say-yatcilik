@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import BoatSearchForm from "../components/forms/BoatSearchForm";
 // import { Swiper, SwiperSlide } from "swiper/react";
 // import { EffectFade } from "swiper/modules";
@@ -22,8 +22,15 @@ const words = [
 ];
 
 export default function Home() {
-  const { apiControl, setApiControl } = useContext(ApiContext);
+  const { apiControl } = useContext(ApiContext);
   const { t } = useTranslation();
+  const navigate = useNavigate();
+
+  const goToBlogDetail = (link) => {
+    navigate(`/discover/${link}`, {
+      state: { link: link, prevPath: window.location.pathname },
+    });
+  };
 
   return (
     <>
@@ -38,7 +45,8 @@ export default function Home() {
                 <h2>{t("home.banner_title")}</h2>
                 <span>
                   {" "}
-                  <Link>İkinci El</Link> | <Link>Tüm Tekneler</Link>{" "}
+                  <Link to="/boats">{t("status.no_new")}</Link> |{" "}
+                  <Link to="/boats">{t("module_banner.boats_link")}</Link>{" "}
                 </span>
               </div>
               <div className="form-body">
@@ -60,81 +68,45 @@ export default function Home() {
       <section>
         <div className="container">
           <div className="module-header center">
-            <h2>Popüler Tekneler</h2>
+            <h2>{t("module_banner.populer_boats_title")}</h2>
             <Link style={{ textAlign: "right" }} to={"/boats"}>
-              Tümünü Gör
+              {t("module_banner.see_all")}
             </Link>
           </div>
 
           <div className="boat-list">
-            <div className="boat-item">
-              <div className="boat-image">
-                <img src={require("../assets/images/yat.png")} alt="" />
-                <span className="boat-status">İkinci El</span>
-              </div>
-              <div className="boat-content">
-                <div className="boat-info">
-                  <h3>Beneteau Oceanis TC Bayrak (2022)</h3>
-                  <span>Motor Yat | 26,7 m</span>
+            {apiControl.boats.value
+              .filter((item) => Number(item.popular) === 1)
+              .map((data, key) => (
+                <div className="boat-item" key={key}>
+                  <div className="boat-image">
+                    <img src={data.image} alt={data.title} />
+                    <span className="boat-status">
+                      {data.boat_class === "1" ? "İkinci El" : "Sıfır"}
+                    </span>
+                  </div>
+                  <div className="boat-content">
+                    <div className="boat-info">
+                      <h3>{data.title}</h3>
+                      <span>
+                        {data.category} | {data.height}m
+                      </span>
+                    </div>
+                    <div className="boat-price">
+                      <p className="price">{data.price}</p>
+                      <span>EUR</span>
+                    </div>
+                  </div>
+                  <div className="boat-links">
+                    <button className="btn-style">
+                      {t("common.get_quote")}
+                    </button>
+                    <Link to={`/boat/${data.link}`} className="btn-style">
+                      {t("common.detail_info")}
+                    </Link>
+                  </div>
                 </div>
-                <div className="boat-price">
-                  <p className="price">329.000</p>
-                  <span>EUR</span>
-                </div>
-              </div>
-              <div className="boat-links">
-                <button className="btn-style">Teklif Al</button>
-                <Link to="/" className="btn-style">
-                  Detaylı Bilgi
-                </Link>
-              </div>
-            </div>
-
-            <div className="boat-item">
-              <div className="boat-image">
-                <img src={require("../assets/images/yat.png")} alt="" />
-                <span className="boat-status">İkinci El</span>
-              </div>
-              <div className="boat-content">
-                <div className="boat-info">
-                  <h3>Beneteau Oceanis TC Bayrak (2022)</h3>
-                  <span>Motor Yat | 26,7 m</span>
-                </div>
-                <div className="boat-price">
-                  <p className="price">329.000</p>
-                  <span>EUR</span>
-                </div>
-              </div>
-              <div className="boat-links">
-                <button className="btn-style">Teklif Al</button>
-                <Link to="/" className="btn-style">
-                  Detaylı Bilgi
-                </Link>
-              </div>
-            </div>
-
-            <div className="boat-item">
-              <div className="boat-image">
-                <img src={require("../assets/images/yat.png")} alt="" />
-                <span className="boat-status">İkinci El</span>
-              </div>
-              <div className="boat-content">
-                <div className="boat-info">
-                  <h3>Beneteau Oceanis TC Bayrak (2022)</h3>
-                  <span>Motor Yat | 26,7 m</span>
-                </div>
-                <div className="boat-price">
-                  <p className="price">329.000</p>
-                  <span>EUR</span>
-                </div>
-              </div>
-              <div className="boat-links">
-                <button className="btn-style">Teklif Al</button>
-                <Link to="/" className="btn-style">
-                  Detaylı Bilgi
-                </Link>
-              </div>
-            </div>
+              ))}
           </div>
         </div>
       </section>
@@ -145,13 +117,15 @@ export default function Home() {
           <div className="row align-items-center">
             <div className="col-lg-6">
               <div className="brands-left">
-                <h2>
-                  Tekne Markalarının <br /> Popüler Temsilcisi
-                </h2>
+                <h2
+                  dangerouslySetInnerHTML={{
+                    __html: t("module_banner.boat_brands"),
+                  }}
+                />
                 <img
                   src={require("../assets/images/markaTemsilcisi.png")}
                   width={"100%"}
-                  alt=""
+                  alt="Markalar"
                 />
               </div>
             </div>
@@ -217,8 +191,8 @@ export default function Home() {
       <section className="boat-bg">
         <div className="container">
           <div className="boats-header">
-            <h2 className="text-white">Tarzınızı Seçin</h2>
-            <Link to={"/"}>Tüm Tekneler</Link>
+            <h2 className="text-white">{t("module_banner.boats_title")}</h2>
+            <Link to={"/boats"}>{t("module_banner.boats_link")}</Link>
           </div>
 
           <BoatsSlide />
@@ -229,27 +203,23 @@ export default function Home() {
       <section>
         <div className="container">
           <div className="module-header">
-            <h2>Say Danışmanlık Deneyimi</h2>
-            <p>
-              İhtiyacınızın ve isteklerinizin sınırı ne olursa olsun huzurlu bir
-              tekne tatili vadederek her türden denizciye uygun alternatifler
-              sunmayı hedefliyoruz.
-            </p>
+            <h2>{t("module_banner.exp_title")}</h2>
+            <p>{t("module_banner.exp_text")}</p>
           </div>
 
           <div className="module_body">
             <div className="image-list">
               <div>
-                <img src={require("../assets/images/boat1.png")} alt="" />
+                <img src={require("../assets/images/boat1.png")} alt="Boat" />
               </div>
               <div>
-                <img src={require("../assets/images/boat2.png")} alt="" />
+                <img src={require("../assets/images/boat2.png")} alt="Boat" />
               </div>
               <div>
-                <img src={require("../assets/images/boat3.png")} alt="" />
+                <img src={require("../assets/images/boat3.png")} alt="Boat" />
               </div>
               <div>
-                <img src={require("../assets/images/i4.png")} alt="" />
+                <img src={require("../assets/images/i4.png")} alt="Boat" />
               </div>
             </div>
           </div>
@@ -272,8 +242,8 @@ export default function Home() {
       <section className="boat-bg more-mb">
         <div className="container">
           <div className="boats-header mb-3">
-            <h2 className="text-white">Haberler </h2>
-            <Link to={"/"}>Tüm Tekneler</Link>
+            <h2 className="text-white">{t("module_banner.news_title")} </h2>
+            <Link to={"/news"}>{t("module_banner.see_all")}</Link>
           </div>
 
           <NewsSlide />
@@ -284,13 +254,11 @@ export default function Home() {
       <section className="newsletter_sec">
         <div className="container">
           <div className="newsletter_area">
-            <h2 className="text-center">
-              E-bültenimize abone olun; yenilikleri ilk siz öğrenin.
-            </h2>
+            <h2 className="text-center">{t("form.news")}</h2>
             <div>
               <form>
                 <input type="text" placeholder="E-mail adresiniz" />
-                <button className="btn-style">Kayıt Ol</button>
+                <button className="btn-style">{t("form.register")}</button>
               </form>
             </div>
           </div>
@@ -301,44 +269,52 @@ export default function Home() {
       <section>
         <div className="container">
           <div className="boats-header mb-3">
-            <h2>Keşfet </h2>
+            <h2>{t("module_banner.discover_title")}</h2>
             <Link to={"/"} className="text-black">
-              Tümünü Gör
+              {t("module_banner.see_all")}
             </Link>
           </div>{" "}
           <div className="announcements_main">
             <div className="left">
               {apiControl.discover.value.length > 0 &&
-                apiControl.discover.value.map((item, key) => (
-                  <div className="item">
+                apiControl.discover.value.slice(0, 1).map((item, key) => (
+                  <div className="item" key={key}>
                     <img src={item.image} alt={item.title} />
                     <div className="item_content">
                       <span className="category">{item.category}</span>
-
                       <h3>{item.title}</h3>
-                      <p>{item.content}</p>
-                      <Link to={`/discover/${item.link}`}>Devamını Oku</Link>
+                      <div
+                        dangerouslySetInnerHTML={{ __html: item.content }}
+                        className="blog_detail"
+                      />
+                      <button onClick={() => goToBlogDetail(item.link)}>
+                        {t("common.read_more")}
+                      </button>
                     </div>
                   </div>
                 ))}
             </div>
+
             <div className="right">
-              <div className="item">
-                <img src={require("../assets/images/boat2.png")} alt="Başlık" />
-                <div className="item_content">
-                  <span className="category">Kategori</span>
-                  <h3>Başlık</h3>
-                  <Link to="/">Devamını Oku</Link>
-                </div>
-              </div>
-              <Link to="/" className="item">
-                <img src={require("../assets/images/boat3.png")} alt="Başlık" />
-                <div className="item_content">
-                  <span className="category">Kategori</span>
-                  <h3>Başlık</h3>
-                  <Link to="/">Devamını Oku</Link>
-                </div>
-              </Link>
+              {apiControl.discover.value.length > 1 &&
+                apiControl.discover.value
+                  .slice(1, 3) // İkinci ve üçüncü öğeleri sağ tarafa almak için slice kullanıyoruz
+                  .map((item, key) => (
+                    <div className="item" key={key}>
+                      <img src={item.image} alt={item.title} />
+                      <div className="item_content">
+                        <span className="category">{item.category}</span>
+                        <h3>{item.title}</h3>
+                        <div
+                          dangerouslySetInnerHTML={{ __html: item.content }}
+                          className="blog_detail"
+                        />
+                        <button onClick={() => goToBlogDetail(item.link)}>
+                          {t("common.read_more")}
+                        </button>
+                      </div>
+                    </div>
+                  ))}
             </div>
           </div>
         </div>
@@ -370,8 +346,8 @@ export default function Home() {
                   </p>
                 </div>
 
-                <Link to={"/hakkimizda"} className="btn-style">
-                  Daha Fazla
+                <Link to={"/abous-us"} className="btn-style">
+                  {t("common.read_more")}
                 </Link>
               </div>
             </div>

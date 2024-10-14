@@ -79,6 +79,11 @@ export default function Header({ changeDomLanguage }) {
             </Link>
           </li>
           <li>
+            <Link to={`/news`} title={t("header.news")}>
+              {t("header.news")}
+            </Link>
+          </li>
+          <li>
             <Link to={`/discover`} title={t("header.discover")}>
               {t("header.discover")}
             </Link>

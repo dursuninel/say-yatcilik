@@ -1,20 +1,18 @@
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 
 import { Link } from "react-router-dom";
+import { ApiContext } from "../context/ApiContext";
+import { useTranslation } from "react-i18next";
 
 const NewsSlide = () => {
+  const { apiControl } = useContext(ApiContext);
+  const { t } = useTranslation();
+
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const swiperRef = useRef(null); // Swiper referansı
-
-  const slides = [
-    require("../assets/images/news1.png"),
-    require("../assets/images/news2.png"),
-    require("../assets/images/news1.png"),
-    require("../assets/images/news2.png"),
-  ];
 
   // Swiper navigasyonu güncellemek için useEffect kullanıyoruz
   useEffect(() => {
@@ -65,14 +63,17 @@ const NewsSlide = () => {
         className="news-body"
         onSwiper={(swiper) => (swiperRef.current = swiper)} // Swiper referansını kaydediyoruz
       >
-        {slides.map((src, index) => (
-          <SwiperSlide key={index} className="news-item">
-            <img src={src} alt="" />
+        {apiControl.news.value.map((data, key) => (
+          <SwiperSlide key={key} className="news-item">
+            <img src={data.image} alt={data.title} />
             <div className="news-item-content">
-              <h3>Yat Festivali (10 - 15 Eylül 2024)</h3>
+              <h3>{data.title}</h3>
 
-              <Link to={"/"} className="btn-style transparent-style">
-                Daha Fazla
+              <Link
+                to={`/news/${data.link}`}
+                className="btn-style transparent-style"
+              >
+                {t("common.more")}
               </Link>
             </div>
           </SwiperSlide>

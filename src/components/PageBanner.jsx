@@ -7,7 +7,7 @@ export default function PageBanner({ breadpoint, title, content, image }) {
       <section className="page_banner">
         <img
           src={image ? image : require("../assets/images/pagebanner.png")}
-          alt=""
+          alt="Say Danışmanlık"
         />
         <div className="container page_banner_content">
           <ul className="breadpoint">

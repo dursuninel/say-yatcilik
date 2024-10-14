@@ -1,20 +1,16 @@
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 
 import { Link } from "react-router-dom";
+import { ApiContext } from "../context/ApiContext";
 
 const BoatsSlide = () => {
+  const { apiControl } = useContext(ApiContext);
+
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const swiperRef = useRef(null); // Swiper referansı
-
-  const slides = [
-    require("../assets/images/boat1.png"),
-    require("../assets/images/boat2.png"),
-    require("../assets/images/boat3.png"),
-    require("../assets/images/boat1.png"),
-  ];
 
   // Swiper navigasyonu güncellemek için useEffect kullanıyoruz
   useEffect(() => {
@@ -65,12 +61,11 @@ const BoatsSlide = () => {
         className="boats-body"
         onSwiper={(swiper) => (swiperRef.current = swiper)} // Swiper referansını kaydediyoruz
       >
-        {slides.map((src, index) => (
-          <SwiperSlide key={index} className="boat-item">
-            <img src={src} alt="" />
-            <Link to={"/"}>
-              {" "}
-              Yat ismi <i className="fa-solid fa-arrow-right-long"></i>
+        {apiControl.boats.value.map((data, key) => (
+          <SwiperSlide key={key} className="boat-item">
+            <img src={data.image} alt={data.title} />
+            <Link to={`/boat/${data.link}`}>
+              {data.title} <i className="fa-solid fa-arrow-right-long"></i>
             </Link>
           </SwiperSlide>
         ))}

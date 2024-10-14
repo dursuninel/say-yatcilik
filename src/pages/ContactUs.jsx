@@ -1,37 +1,42 @@
 import React from "react";
 import PageBanner from "../components/PageBanner";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function ContactUs() {
+  const { t } = useTranslation();
   return (
     <>
       <PageBanner
-        title={"İletişim"}
-        breadpoint={[{ title: "Anasayfa", link: "/" }, { title: "İletişim" }]}
+        title={t("banners.contact_banner")}
+        breadpoint={[
+          { title: t("banners.home"), link: "/" },
+          { title: t("banners.contact_banner") },
+        ]}
       />
 
       <section>
         <div className="container">
-          <h2 className="mb-4">Bize Ulaşın</h2>
+          <h2 className="mb-4">{t("form.title")}</h2>
           <form>
             <div className="contact-form-flex">
               <div>
-                <label htmlFor="">Adınız Soyadınız</label>
-                <input type="text" placeholder="Adınız Soyadınız" />
+                <label htmlFor="">{t("form.name")}</label>
+                <input type="text" placeholder={t("form.name")} />
               </div>
               <div>
-                <label htmlFor="">Email Adresiniz</label>
-                <input type="text" placeholder="Email Adresiniz" />
+                <label htmlFor="">{t("form.email")}</label>
+                <input type="text" placeholder={t("form.email")} />
               </div>
               <div>
-                <label htmlFor="">Telefon Numaranız</label>
-                <input type="text" placeholder="Telefon Numaranız" />
+                <label htmlFor="">{t("form.phone")}</label>
+                <input type="text" placeholder={t("form.phone")} />
               </div>
               <div className="one-input">
-                <label htmlFor="">Mesajınızı</label>
-                <textarea placeholder="Mesajınızı"></textarea>
+                <label htmlFor="">{t("form.message")}</label>
+                <textarea placeholder={t("form.message")}></textarea>
               </div>
-              <button className="btn-style">Gönder</button>
+              <button className="btn-style">{t("form.send")}</button>
             </div>
           </form>
         </div>

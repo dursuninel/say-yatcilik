@@ -1,10 +1,12 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import InputMask from "react-input-mask";
 import OnlyNumberFormik from "../OnlyNumberFormik";
+import { useTranslation } from "react-i18next";
 
 const BoatSearchForm = () => {
+  const { t } = useTranslation();
+
   const formik = useFormik({
     initialValues: {
       boatType: "",
@@ -44,7 +46,7 @@ const BoatSearchForm = () => {
   return (
     <form className="form-area" onSubmit={formik.handleSubmit}>
       <div className="form-group">
-        <label htmlFor="boatType">Tekne Tipi</label>
+        <label htmlFor="boatType">{t("home.boat_type")}</label>
         <div className="input-group">
           <div className="one-input">
             <input
@@ -65,7 +67,7 @@ const BoatSearchForm = () => {
       </div>
 
       <div className="form-group">
-        <label htmlFor="heightMin">Boy</label>
+        <label htmlFor="heightMin">{t("home.boat_height")}</label>
         <div className="input-group center">
           <div className="one-input">
             <input
@@ -127,7 +129,7 @@ const BoatSearchForm = () => {
       </div>
 
       <div className="form-group">
-        <label htmlFor="priceMin">Fiyat</label>
+        <label htmlFor="priceMin">{t("home.boat_price")}</label>
         <div className="input-group center">
           <div className="one-input">
             <input
@@ -189,7 +191,9 @@ const BoatSearchForm = () => {
       </div>
 
       <div className="btn-group">
-        <button type="submit" className="btn-style">Arama</button>
+        <button type="submit" className="btn-style">
+          Arama
+        </button>
       </div>
     </form>
   );
