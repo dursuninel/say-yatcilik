@@ -74,8 +74,8 @@ export default function Header({ changeDomLanguage }) {
             </Link>
           </li>
           <li>
-            <Link to={`/boats`} title={t("header.boats")}>
-              {t("header.boats")}
+            <Link to={`/yachts`} title={t("header.yachts")}>
+              {t("header.yachts")}
             </Link>
           </li>
           <li>

@@ -2,6 +2,7 @@ import React from "react";
 import PageBanner from "../components/PageBanner";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import ContactForm from "../components/forms/ContactForm";
 
 export default function ContactUs() {
   const { t } = useTranslation();
@@ -18,27 +19,7 @@ export default function ContactUs() {
       <section>
         <div className="container">
           <h2 className="mb-4">{t("form.title")}</h2>
-          <form>
-            <div className="contact-form-flex">
-              <div>
-                <label htmlFor="">{t("form.name")}</label>
-                <input type="text" placeholder={t("form.name")} />
-              </div>
-              <div>
-                <label htmlFor="">{t("form.email")}</label>
-                <input type="text" placeholder={t("form.email")} />
-              </div>
-              <div>
-                <label htmlFor="">{t("form.phone")}</label>
-                <input type="text" placeholder={t("form.phone")} />
-              </div>
-              <div className="one-input">
-                <label htmlFor="">{t("form.message")}</label>
-                <textarea placeholder={t("form.message")}></textarea>
-              </div>
-              <button className="btn-style">{t("form.send")}</button>
-            </div>
-          </form>
+          <ContactForm />
         </div>
       </section>
 

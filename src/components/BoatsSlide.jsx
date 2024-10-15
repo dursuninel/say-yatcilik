@@ -58,10 +58,10 @@ const BoatsSlide = () => {
             slidesPerView: 1,
           },
         }}
-        className="boats-body"
+        className="yachts-body"
         onSwiper={(swiper) => (swiperRef.current = swiper)} // Swiper referansını kaydediyoruz
       >
-        {apiControl.boats.value.map((data, key) => (
+        {apiControl.yachts.value.map((data, key) => (
           <SwiperSlide key={key} className="boat-item">
             <img src={data.image} alt={data.title} />
             <Link to={`/boat/${data.link}`}>
@@ -70,17 +70,17 @@ const BoatsSlide = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="custom-boats-arrow">
+      <div className="custom-yachts-arrow">
         <div
           ref={prevRef}
-          className="boats-arrow-left"
+          className="yachts-arrow-left"
           onClick={handlePrevClick}
         >
           <i className="fa-solid fa-angle-left"></i>
         </div>
         <div
           ref={nextRef}
-          className="boats-arrow-right"
+          className="yachts-arrow-right"
           onClick={handleNextClick}
         >
           <i className="fa-solid fa-angle-right"></i>

@@ -5,13 +5,16 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Loader from "./components/Loader";
 import News from "./pages/News";
+import YachtDetail from "./pages/YachtDetail";
+import { ToastContainer } from "react-toastify";
+import NewsDetail from "./pages/NewsDetail";
 
 // Lazy loading for pages
 const Home = lazy(() => import("./pages/Home"));
 const AboutUs = lazy(() => import("./pages/AboutUs"));
 const ContactUs = lazy(() => import("./pages/ContactUs"));
 const InclusivePage = lazy(() => import("./components/InclusivePage"));
-const Boats = lazy(() => import("./pages/Boats"));
+const Yachts = lazy(() => import("./pages/Yachts"));
 const Discover = lazy(() => import("./pages/Discover"));
 const DiscoverDetail = lazy(() => import("./pages/DiscoverDetail"));
 
@@ -28,6 +31,7 @@ export default function App() {
       element: (
         <>
           <Header changeDomLanguage={changeLanguage} />
+          <ToastContainer autoClose={1000} />
           <Suspense fallback={<Loader>{t("loads.global_load")}</Loader>}>
             <InclusivePage />
           </Suspense>
@@ -52,10 +56,18 @@ export default function App() {
           ),
         },
         {
-          path: "/boats",
+          path: "/yachts",
           element: (
             <>
-              <Boats />
+              <Yachts />
+            </>
+          ),
+        },
+        {
+          path: "/yacht/:link",
+          element: (
+            <>
+              <YachtDetail />
             </>
           ),
         },
@@ -64,6 +76,14 @@ export default function App() {
           element: (
             <>
               <News />
+            </>
+          ),
+        },
+        {
+          path: "/news/:link",
+          element: (
+            <>
+              <NewsDetail />
             </>
           ),
         },

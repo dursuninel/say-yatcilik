@@ -5,7 +5,7 @@ import { ApiContext } from "../context/ApiContext";
 import Loader from "../components/Loader";
 import { useTranslation } from "react-i18next";
 
-export default function DiscoverDetail() {
+export default function NewsDetail() {
   const { apiControl } = useContext(ApiContext);
 
   const { state } = useLocation();
@@ -15,8 +15,9 @@ export default function DiscoverDetail() {
   const [load, setLoad] = useState(true);
   const [data, setData] = useState(null);
 
-  const goToBlogDetail = (link) => {
-    navigate(`/discover/${link}`, {
+  const goToDetail = (link) => {
+    console.log("asd");
+    navigate(`/news/${link}`, {
       state: { link: link },
     });
   };
@@ -24,21 +25,16 @@ export default function DiscoverDetail() {
   useEffect(() => {
     setData(null);
 
-    let datas = apiControl.discover.value.find(
-      (item) => item.link === state?.link
-    );
+    let datas = apiControl.news.value.find((item) => item.link === state?.link);
 
     if (datas) {
-      setData(
-        apiControl.discover.value.find((item) => item.link === state.link)
-      );
+      setData(apiControl.news.value.find((item) => item.link === state.link));
       setLoad(false);
     } else {
-      navigate("/discover");
+      navigate("/news");
       // console.log(datas)
     }
   }, [state]);
-
 
   return (
     <>
@@ -48,7 +44,7 @@ export default function DiscoverDetail() {
             title={data.title}
             breadpoint={[
               { title: t("banners.home"), link: "/" },
-              { title: `/ ${t("banners.discover_banner")}`, link: "/discover" },
+              { title: `/ ${t("banners.news_banner")}`, link: "/news" },
               {
                 title: data.title,
               },
@@ -57,27 +53,22 @@ export default function DiscoverDetail() {
             content={<div dangerouslySetInnerHTML={{ __html: data.content }} />}
           />
 
-          {/* Keşfet */}
           <section>
             <div className="container">
-              <div className="announcements_main list">
-                {apiControl.discover.value
+              <div className="news-body list">
+                {apiControl.news.value
                   .filter((item) => item.link !== data.link)
-                  .map((data, key) => (
-                    <div className="item" key={key}>
-                      <img src={data.image} alt={data.title} />
-                      <div className="item_content">
-                        <span className="category">{data.category}</span>
+                  .map((item, key) => (
+                    <div className="news-item" key={key}>
+                      <img src={item.image} alt={item.title} />
+                      <div className="news-item-content">
+                        <h3>{item.title}</h3>
 
-                        <h3>{data.title}</h3>
-
-                        <div
-                          className="blog_detail"
-                          dangerouslySetInnerHTML={{ __html: data.content }}
-                        />
-
-                        <button onClick={() => goToBlogDetail(data.link)}>
-                        {t("common.read_more")}
+                        <button
+                          onClick={() => goToDetail(item.link)}
+                          className="btn-style transparent-style"
+                        >
+                          {t("common.read_more")}
                         </button>
                       </div>
                     </div>
@@ -87,7 +78,7 @@ export default function DiscoverDetail() {
           </section>
         </>
       ) : (
-        <Loader> {t("loads.discover_load")} </Loader>
+        <Loader> {t("loads.news_load")} </Loader>
       )}
     </>
   );

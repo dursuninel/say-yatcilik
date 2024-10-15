@@ -8,7 +8,7 @@
   "header": {
     "home": "Anasayfa",
     "about_us": "Hakkımızda",
-    "boats": "Yatlar",
+    "yachts": "Yatlar",
     "news": "Haberler",
     "discover": "Keşfet",
     "contact_us": "İletişim",
@@ -19,7 +19,7 @@
     }
   },
   "global": {
-    "copyright": "© 2024 Say Danışmanlık, Tüm Hakları Saklıdır.",
+    "copyright": "© {{year}} Say Danışmanlık, Tüm Hakları Saklıdır.",
     "phone": "Telefon",
     "email": "E-mail",
     "social": "Sosyal Medya"
@@ -27,7 +27,7 @@
   "banners": {
     "home": "Anasayfa",
     "about_banner": "Hakkımızda",
-    "boats_banner": "Yatlar",
+    "yachts_banner": "Yatlar",
     "news_banner": "Haberler",
     "discover_banner": "Keşfet",
     "contact_banner": "İletişim"
@@ -39,9 +39,9 @@
     "more": "Daha Fazla"
   },
   "module_banner": {
-    "boats_title": "Tarzınızı Seçin",
-    "boats_link": "Tüm Tekneler",
-    "populer_boats_title": "Popüler Tekneler",
+    "yachts_title": "Tarzınızı Seçin",
+    "yachts_link": "Tüm Tekneler",
+    "populer_yachts_title": "Popüler Tekneler",
     "see_all": "Tümünü Gör",
     "boat_brands": "Tekne Markalarının <br /> Popüler Temsilcisi",
     "exp_title": "Say Danışmanlık Deneyimi",
@@ -50,21 +50,52 @@
     "discover_title": "Keşfet"
   },
   "status": {
-    "news": "Sıfır",
+    "new": "Sıfır",
     "no_new": "İkinci El"
   },
   "form": {
-    "name": "Adınız Soyadınız",
+    "name": "Ad Soyad",
     "email": "Email Adresiniz",
     "phone": "Telefon Numaranız",
-    "message": "Mesajınızı",
+    "message": "Mesajınız",
     "send": "Gönder",
     "title": "Bize Ulaşın",
+    "quote_title": "Yat Teklifi Al",
     "news": "E-bültenimize abone olun; yenilikleri ilk siz öğrenin.",
-    "register": "Kayıt Ol"
+    "register": "Kayıt Ol",
+    "labels": {
+      "fullName": "Ad soyad",
+      "email": "Email Adresiniz",
+      "phone": "Telefon Numaranız",
+      "yacht": "Teklif Alınacak Yat",
+      "message": "Mesajınız"
+    },
+    "placeholders": {
+      "selectYacht": "Bir yat seçiniz"
+    },
+    "buttons": {
+      "submit": "Teklif Al"
+    },
+    "validation": {
+      "fullName": "Ad soyad zorunludur",
+      "email": "Email adresi zorunludur",
+      "invalidEmail": "Geçerli bir email adresi giriniz",
+      "phone": "Telefon numarası zorunludur",
+      "yacht": "Lütfen bir yat seçiniz",
+      "message": "Mesaj zorunludur"
+    }
   },
   "loads": {
     "global_load": "Yükleniyor",
-    "discover_load": "Blog Yükleniyor"
+    "lang_load": "Dil Değiştiriliyor",
+    "discover_load": "Blog Yükleniyor",
+    "yachts_load": "Yat Yükleniyor",
+    "news_load": "Haber Yükleniyor"
+  },
+  "toast": {
+    "success": "Mesajınız başarıyla gönderildi",
+    "successTitle": "Başarılı",
+    "error": "Mesajınız gönderilirken bir hata oluştu",
+    "errorTitle": "Başarısız"
   }
 }

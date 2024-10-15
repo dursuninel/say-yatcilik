@@ -57,7 +57,7 @@ a.btn-style {
   width: max-content;
 }
 
-.btn-style:hover {
+.btn-style:not(:disabled):hover {
   color: var(--blue);
   background-color: white;
 }
@@ -227,6 +227,11 @@ body {
   padding: 0 0.5rem;
   border: none;
   border-right: 2px solid var(--grey);
+}
+
+.input-error{
+  border-color: red !important;
+  box-shadow: 0 0 2px 1px rgba(255, 0, 0, 0.356);
 }
 
 .center input {
@@ -453,23 +458,23 @@ body {
   padding-bottom: 7rem;
 }
 
-.boats-header {
+.yachts-header {
   display: flex;
   align-items: end;
   justify-content: space-between;
   gap: 1rem;
 }
-.boats-header > * {
+.yachts-header > * {
   margin: 0;
 }
 
-.boats-header a {
+.yachts-header a {
   color: white;
   text-decoration: none;
 }
 
 @media (max-width: 768px) {
-  .boats-header {
+  .yachts-header {
     flex-direction: column;
     gap: 0;
     text-align: center;
@@ -477,21 +482,21 @@ body {
   }
 }
 
-.boats-body > div {
+.yachts-body > div {
   padding: 0.5rem 0 !important;
 }
 
-.boats-flex > div {
+.yachts-flex > div {
   padding: 0 !important;
 }
 
-.boats-flex {
+.yachts-flex {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
 }
 
-.boats-body .boat-item {
+.yachts-body .boat-item {
   height: 30rem;
   box-shadow: 0 0 5px rgb(255, 255, 255, 0.5);
   border-radius: 1rem;
@@ -502,19 +507,19 @@ body {
   transition: all 250ms;
 }
 
-.boats-flex .boat-item {
+.yachts-flex .boat-item {
   width: calc((100% / 2) - 0.5rem);
 }
 
-.boats-body .boat-item.swiper-slide-next {
+.yachts-body .boat-item.swiper-slide-next {
   transform: scale(1);
 }
 
-.boats-flex .boat-item {
+.yachts-flex .boat-item {
   transform: scale(1);
 }
 
-.boats-body .boat-item:after {
+.yachts-body .boat-item:after {
   content: "";
   position: absolute;
   width: 100%;
@@ -528,21 +533,21 @@ body {
   transition: background-color 250ms;
 }
 
-.boats-body .boat-item:not(.swiper-slide-next):after {
+.yachts-body .boat-item:not(.swiper-slide-next):after {
   background-color: #241d4657;
 }
 
-.boats-flex .boat-item:hover:after {
+.yachts-flex .boat-item:hover:after {
   background-color: transparent;
 }
 
-.boats-body .boat-item img {
+.yachts-body .boat-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.boats-body .boat-item a {
+.yachts-body .boat-item a {
   position: absolute;
   bottom: -100%;
   left: 0;
@@ -564,11 +569,11 @@ body {
   transition: all 250ms;
 }
 
-.boats-body .boat-item a:hover {
+.yachts-body .boat-item a:hover {
   background-color: var(--blue-hover);
 }
 
-.custom-boats-arrow {
+.custom-yachts-arrow {
   margin-top: 1.25rem;
   display: flex;
   align-items: center;
@@ -577,7 +582,7 @@ body {
   gap: 0.65rem;
 }
 
-.custom-boats-arrow > div {
+.custom-yachts-arrow > div {
   width: 3rem;
   height: 3rem;
   background-color: var(--blue);
@@ -595,46 +600,46 @@ body {
   justify-content: center;
 }
 
-.custom-boats-arrow > div.swiper-button-lock {
+.custom-yachts-arrow > div.swiper-button-lock {
   background-color: transparent;
   border-color: white;
   cursor: no-drop;
 }
 
-.custom-boats-arrow > div:not(.swiper-button-lock):hover {
+.custom-yachts-arrow > div:not(.swiper-button-lock):hover {
   background-color: var(--blue-hover);
 }
 
 @media (max-width: 1200px) and (min-width: 768px) {
-  .boats-body .boat-item {
+  .yachts-body .boat-item {
     transform: scale(1);
   }
-  .boats-body .boat-item:after {
+  .yachts-body .boat-item:after {
     background-color: transparent !important;
   }
-  .boats-body .boat-item a {
+  .yachts-body .boat-item a {
     bottom: 1rem !important;
   }
 }
 
 @media (min-width: 768px) {
-  .boats-body .boat-item.swiper-slide-next a {
+  .yachts-body .boat-item.swiper-slide-next a {
     bottom: 1rem;
   }
 }
 
-.boats-flex .boat-item a {
+.yachts-flex .boat-item a {
   bottom: 1rem;
 }
 
 @media (max-width: 992px) {
-  .boats-flex .boat-item {
+  .yachts-flex .boat-item {
     height: 20rem;
   }
 }
 
 @media (max-width: 768px) {
-  .boats-body .boat-item.swiper-slide-active:after {
+  .yachts-body .boat-item.swiper-slide-active:after {
     background-color: transparent !important;
   }
   .boat-item {
@@ -644,11 +649,11 @@ body {
     transform: scale(0.98);
   }
 
-  .boats-body .boat-item.swiper-slide-active a {
+  .yachts-body .boat-item.swiper-slide-active a {
     bottom: 1rem;
   }
 
-  .boats-flex .boat-item {
+  .yachts-flex .boat-item {
     width: 100%;
   }
 }
@@ -1204,7 +1209,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgb(0, 0, 0, 0.4);
+  background-color: rgb(0, 0, 0, 0.65);
 }
 
 .page_banner img {
@@ -1311,7 +1316,8 @@ footer.main-footer {
   padding: 0;
 }
 
-footer a {
+footer a,
+footer p {
   color: #000000;
   opacity: 0.8;
   font-size: 0.95rem;
@@ -1319,7 +1325,9 @@ footer a {
   transition: color 250ms, opacity 250ms;
 }
 
-footer a:hover {
+footer a:hover,
+
+footer p:hover {
   opacity: 1;
   color: var(--main-hover);
 }
@@ -1715,4 +1723,35 @@ footer * {
   text-overflow: ellipsis;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+}
+
+.form_style {
+  display: flex;
+  flex-direction: column;
+  gap: .34rem;
+  margin-bottom: 1rem;
+}
+
+.form_style label{
+  font-size: .9rem;
+}
+
+small.p-error {
+  position: absolute;
+  bottom: -1.15rem;
+  font-size: .8rem;
+  left: 0;
+}
+
+.p-field {
+  position: relative;
+}
+
+ul.p-dropdown-items {
+  padding: 0;
+  margin: 0;
+}
+
+button.btn-style.w-100:disabled{
+  background-color: #06424b;
 }

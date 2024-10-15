@@ -11,7 +11,7 @@ export const ApiProvider = (props) => {
   const [apiControl, setApiControl] = useState({
     discover: { status: false, value: [] },
     news: { status: false, value: [] },
-    boats: { status: false, value: [] },
+    yachts: { status: false, value: [] },
   });
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export const ApiProvider = (props) => {
         ...apiControl,
         discover: { status: true, value: res.data.discover },
         news: { status: true, value: res.data.news },
-        boats: { status: true, value: res.data.boats },
+        yachts: { status: true, value: res.data.boats },
       });
     });
 

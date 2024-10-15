@@ -28,7 +28,19 @@ export default function Home() {
 
   const goToBlogDetail = (link) => {
     navigate(`/discover/${link}`, {
-      state: { link: link, prevPath: window.location.pathname },
+      state: { link: link },
+    });
+  };
+
+  const goToYachtDetail = (link) => {
+    navigate(`/yacht/${link}`, {
+      state: { link: link },
+    });
+  };
+
+  const goToNewsDetail = (link) => {
+    navigate(`/news/${link}`, {
+      state: { link: link },
     });
   };
 
@@ -45,8 +57,8 @@ export default function Home() {
                 <h2>{t("home.banner_title")}</h2>
                 <span>
                   {" "}
-                  <Link to="/boats">{t("status.no_new")}</Link> |{" "}
-                  <Link to="/boats">{t("module_banner.boats_link")}</Link>{" "}
+                  <Link to="/yachts">{t("status.no_new")}</Link> |{" "}
+                  <Link to="/yachts">{t("module_banner.yachts_link")}</Link>{" "}
                 </span>
               </div>
               <div className="form-body">
@@ -68,21 +80,23 @@ export default function Home() {
       <section>
         <div className="container">
           <div className="module-header center">
-            <h2>{t("module_banner.populer_boats_title")}</h2>
-            <Link style={{ textAlign: "right" }} to={"/boats"}>
+            <h2>{t("module_banner.populer_yachts_title")}</h2>
+            <Link style={{ textAlign: "right" }} to={"/yachts"}>
               {t("module_banner.see_all")}
             </Link>
           </div>
 
           <div className="boat-list">
-            {apiControl.boats.value
+            {apiControl.yachts.value
               .filter((item) => Number(item.popular) === 1)
               .map((data, key) => (
                 <div className="boat-item" key={key}>
                   <div className="boat-image">
                     <img src={data.image} alt={data.title} />
                     <span className="boat-status">
-                      {data.boat_class === "1" ? "İkinci El" : "Sıfır"}
+                      {data.boat_class === "1"
+                        ? t("status.no_new")
+                        : t("status.new")}
                     </span>
                   </div>
                   <div className="boat-content">
@@ -101,9 +115,12 @@ export default function Home() {
                     <button className="btn-style">
                       {t("common.get_quote")}
                     </button>
-                    <Link to={`/boat/${data.link}`} className="btn-style">
+                    <button
+                      onClick={() => goToYachtDetail(data.link)}
+                      className="btn-style"
+                    >
                       {t("common.detail_info")}
-                    </Link>
+                    </button>
                   </div>
                 </div>
               ))}
@@ -190,9 +207,9 @@ export default function Home() {
       {/* Tekne Kategorileri */}
       <section className="boat-bg">
         <div className="container">
-          <div className="boats-header">
-            <h2 className="text-white">{t("module_banner.boats_title")}</h2>
-            <Link to={"/boats"}>{t("module_banner.boats_link")}</Link>
+          <div className="yachts-header">
+            <h2 className="text-white">{t("module_banner.yachts_title")}</h2>
+            <Link to={"/yachts"}>{t("module_banner.yachts_link")}</Link>
           </div>
 
           <BoatsSlide />
@@ -241,12 +258,12 @@ export default function Home() {
       {/* Haberler */}
       <section className="boat-bg more-mb">
         <div className="container">
-          <div className="boats-header mb-3">
+          <div className="yachts-header mb-3">
             <h2 className="text-white">{t("module_banner.news_title")} </h2>
             <Link to={"/news"}>{t("module_banner.see_all")}</Link>
           </div>
 
-          <NewsSlide />
+          <NewsSlide goToNewsDetail={goToNewsDetail} />
         </div>
       </section>
 
@@ -268,7 +285,7 @@ export default function Home() {
       {/* Keşfet */}
       <section>
         <div className="container">
-          <div className="boats-header mb-3">
+          <div className="yachts-header mb-3">
             <h2>{t("module_banner.discover_title")}</h2>
             <Link to={"/"} className="text-black">
               {t("module_banner.see_all")}
@@ -346,7 +363,7 @@ export default function Home() {
                   </p>
                 </div>
 
-                <Link to={"/abous-us"} className="btn-style">
+                <Link to={"/about-us"} className="btn-style">
                   {t("common.read_more")}
                 </Link>
               </div>

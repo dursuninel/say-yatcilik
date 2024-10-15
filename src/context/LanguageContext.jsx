@@ -1,12 +1,14 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
 import i18n from "../i18n";
 import Loader from "../components/Loader";
+import { useTranslation } from "react-i18next";
 
 // Dil için context oluşturma
 const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
   const [loadPage, setLoadPage] = useState(false);
+  const { t } = useTranslation(); // i18n hook
 
   const languagesData = [
     {
@@ -55,7 +57,7 @@ export const LanguageProvider = ({ children }) => {
     <LanguageContext.Provider
       value={{ activeLanguage, languages, changeLanguage }}
     >
-      {loadPage && <Loader>Dil Değiştiriliyor</Loader>}
+      {loadPage && <Loader>{t("loads.lang_load")}</Loader>}
       {children}
     </LanguageContext.Provider>
   );

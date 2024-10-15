@@ -1,12 +1,19 @@
 import React, { useContext } from "react";
 import PageBanner from "../components/PageBanner";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ApiContext } from "../context/ApiContext";
 import { useTranslation } from "react-i18next";
 
 export default function News() {
   const { apiControl } = useContext(ApiContext);
   const { t } = useTranslation();
+  const navigate = useNavigate();
+
+  const goToDetail = (link) => {
+    navigate(`/news/${link}`, {
+      state: { link: link },
+    });
+  };
 
   return (
     <>
@@ -17,7 +24,7 @@ export default function News() {
           { title: t("banners.news_banner") },
         ]}
       />
-      ;{/* Haberler */}
+
       <section>
         <div className="container">
           <div className="news-body list">
@@ -27,12 +34,12 @@ export default function News() {
                 <div className="news-item-content">
                   <h3>{item.title}</h3>
 
-                  <Link
-                    to={`/news/${item.link}`}
+                  <button
+                    onClick={() => goToDetail(item.link)}
                     className="btn-style transparent-style"
                   >
                     {t("common.read_more")}
-                  </Link>
+                  </button>
                 </div>
               </div>
             ))}

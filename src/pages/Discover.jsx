@@ -12,7 +12,7 @@ export default function Discover() {
 
   const goToDetail = (link) => {
     navigate(`/discover/${link}`, {
-      state: { link: link, prevPath: window.location.pathname },
+      state: { link: link },
     });
   };
   const { t } = useTranslation();

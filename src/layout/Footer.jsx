@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 export default function Footer() {
   const { t } = useTranslation();
 
-
   return (
     <>
       <footer>
@@ -16,7 +15,9 @@ export default function Footer() {
                 <p className="title">{t("global.phone")}</p>
                 <ul>
                   <li>
-                    <a href="/">+90 123 456 789</a>
+                    <a href="tel:902124714477" title="0212 471 4477">
+                      0212 471 4477
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -24,7 +25,12 @@ export default function Footer() {
                 <p className="title">{t("global.email")}</p>
                 <ul>
                   <li>
-                    <a href="/">info@saydanismanlik.com</a>
+                    <a
+                      href="mailto:info@sayyachting.com"
+                      title="info@sayyachting.com"
+                    >
+                      info@sayyachting.com
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -58,9 +64,10 @@ export default function Footer() {
                 <p className="title">Konum</p>
                 <ul>
                   <li>
-                    <a href="/">
-                      Lorem Ipsum, kısaca Lipsum masaüstü basın yayın sektöründe
-                    </a>
+                    <p>
+                      Osmangazi mah. Mareşal Fevzi Çakmak Cad. No 42 Esenyurt /
+                      İstanbul
+                    </p>
                   </li>
                 </ul>
               </div>
@@ -76,36 +83,46 @@ export default function Footer() {
               <div>
                 <ul>
                   <li>
-                    <Link to="/" title={t("header.home")}>{t("header.home")}</Link>
+                    <Link to="/" title={t("header.home")}>
+                      {t("header.home")}
+                    </Link>
                   </li>
 
                   <li>
-                    <Link to="/about-us" title={t("header.about_us")}>{t("header.about_us")}</Link>
+                    <Link to="/about-us" title={t("header.about_us")}>
+                      {t("header.about_us")}
+                    </Link>
                   </li>
 
                   <li>
-                    <Link to="/boats" title={t("header.boats")}>{t("header.boats")}</Link>
+                    <Link to="/yachts" title={t("header.yachts")}>
+                      {t("header.yachts")}
+                    </Link>
                   </li>
 
                   <li>
-                    <Link to="/news" title={t("header.news")}>{t("header.news")}</Link>
+                    <Link to="/news" title={t("header.news")}>
+                      {t("header.news")}
+                    </Link>
                   </li>
 
                   <li>
-                    <Link to="/discover" title={t("header.discover")}>{t("header.discover")}</Link>
+                    <Link to="/discover" title={t("header.discover")}>
+                      {t("header.discover")}
+                    </Link>
                   </li>
 
                   <li>
-                    <Link to="/contact-us" title={t("header.contact_us")}>{t("header.contact_us")}</Link>
+                    <Link to="/contact-us" title={t("header.contact_us")}>
+                      {t("header.contact_us")}
+                    </Link>
                   </li>
                 </ul>
               </div>
             </div>
             <hr />
             <div className="copyright-flex">
-              <p>
-                {t("global.copyright")}
-              </p>
+              <p>{t("global.copyright", { year: new Date().getFullYear() })}</p>
             </div>
           </div>
         </div>

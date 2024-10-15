@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { ApiContext } from "../context/ApiContext";
 import { useTranslation } from "react-i18next";
 
-const NewsSlide = () => {
+const NewsSlide = ({goToNewsDetail}) => {
   const { apiControl } = useContext(ApiContext);
   const { t } = useTranslation();
 
@@ -69,27 +69,27 @@ const NewsSlide = () => {
             <div className="news-item-content">
               <h3>{data.title}</h3>
 
-              <Link
-                to={`/news/${data.link}`}
+              <button
+                onClick={() => goToNewsDetail(data.link)}
                 className="btn-style transparent-style"
               >
                 {t("common.more")}
-              </Link>
+              </button>
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="custom-boats-arrow">
+      <div className="custom-yachts-arrow">
         <div
           ref={prevRef}
-          className="boats-arrow-left"
+          className="yachts-arrow-left"
           onClick={handlePrevClick}
         >
           <i className="fa-solid fa-angle-left"></i>
         </div>
         <div
           ref={nextRef}
-          className="boats-arrow-right"
+          className="yachts-arrow-right"
           onClick={handleNextClick}
         >
           <i className="fa-solid fa-angle-right"></i>

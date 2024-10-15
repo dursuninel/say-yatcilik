@@ -8,7 +8,7 @@
   "header": {
     "home": "Home",
     "about_us": "About Us",
-    "boats": "Yachts",
+    "yachts": "Yachts",
     "news": "News",
     "discover": "Discover",
     "contact_us": "Contact Us",
@@ -19,7 +19,7 @@
     }
   },
   "global": {
-    "copyright": "© 2024 Say Danışmanlık, All Rights Reserved.",
+    "copyright": "© {{year}} Say Danışmanlık, All Rights Reserved.",
     "phone": "Phone",
     "email": "Email",
     "social": "Social Media"
@@ -27,7 +27,7 @@
   "banners": {
     "home": "Home",
     "about_banner": "About Us",
-    "boats_banner": "Yachts",
+    "yachts_banner": "Yachts",
     "news_banner": "News",
     "discover_banner": "Discover",
     "contact_banner": "Contact"
@@ -39,9 +39,9 @@
     "more": "More"
   },
   "module_banner": {
-    "boats_title": "Choose Your Style",
-    "boats_link": "All Boats",
-    "populer_boats_title": "Popular Boats",
+    "yachts_title": "Choose Your Style",
+    "yachts_link": "All yachts",
+    "populer_yachts_title": "Popular yachts",
     "see_all": "See All",
     "boat_brands": "The Popular Representative of <br /> Boat Brands",
     "exp_title": "Say Consultancy Experience",
@@ -50,21 +50,52 @@
     "discover_title": "Discover"
   },
   "status": {
-    "news": "New",
+    "new": "New",
     "no_new": "Second Hand"
   },
   "form": {
-    "name": "Your Name and Surname",
-    "email": "Your Email Address",
-    "phone": "Your Phone Number",
-    "message": "Your Message",
+    "name": "Fullname",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "message": "Message",
     "send": "Send",
     "title": "Contact Us",
+    "quote_title": "Get a Yacht Offer",
     "news": "Subscribe to our newsletter to be the first to know about updates.",
-    "register": "Register"
+    "register": "Register",
+    "labels": {
+      "fullName": "Fullname",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "yacht": "Select Yacht",
+      "message": "Message"
+    },
+    "placeholders": {
+      "selectYacht": "Select a yacht"
+    },
+    "buttons": {
+      "submit": "Get a Quote"
+    },
+    "validation": {
+      "fullName": "Fullname are required",
+      "email": "Email is required",
+      "invalidEmail": "Please enter a valid email address",
+      "phone": "Phone number is required",
+      "yacht": "Please select a yacht",
+      "message": "Message is required"
+    }
   },
   "loads": {
     "global_load": "Loading",
-    "discover_load": "Blog Loading"
+    "lang_load": "Language Changed",
+    "discover_load": "Blog Loading",
+    "yachts_load": "Yachts Loading",
+    "news_load": "News Loading"
+  },
+  "toast": {
+    "success": "Your message has been sent successfully.",
+    "successTitle": "Successfully",
+    "error": "Failed to send your message.",
+    "errorTitle": "Failed"
   }
 }
