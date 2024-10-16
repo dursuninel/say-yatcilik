@@ -41,10 +41,10 @@ export default function YachtDetail() {
     }
   }, [state]);
 
-  const offerForm = (title)=>{
-    setSelectedYacht(title)
-    setShowOffer(true)
-  }
+  const offerForm = (title) => {
+    setSelectedYacht(title);
+    setShowOffer(true);
+  };
 
   return (
     <>
@@ -63,7 +63,11 @@ export default function YachtDetail() {
             content={<div dangerouslySetInnerHTML={{ __html: data.content }} />}
           />
 
-          <Modal title={t("form.quote_title")} state={showOffer} setState={setShowOffer}>
+          <Modal
+            title={t("form.quote_title")}
+            state={showOffer}
+            setState={setShowOffer}
+          >
             <GetQuote value={selectedYacht} />
           </Modal>
 
@@ -74,28 +78,33 @@ export default function YachtDetail() {
                   .filter((item) => item.link !== data.link)
                   .map((data, key) => (
                     <div className="boat-item" key={key}>
-                      <div className="boat-image">
-                        <img src={data.image} alt={data.title} />
-                        <span className="boat-status">
-                          {data.boat_class === "1"
-                            ? t("status.no_new")
-                            : t("status.new")}
-                        </span>
-                      </div>
-                      <div className="boat-content">
-                        <div className="boat-info">
-                          <h3>{data.title}</h3>
-                          <span>
-                            {data.category} | {data.height}m
+                      <div>
+                        <div className="boat-image">
+                          <img src={data.image} alt={data.title} />
+                          <span className="boat-status">
+                            {data.boat_class === "1"
+                              ? t("status.no_new")
+                              : t("status.new")}
                           </span>
                         </div>
-                        <div className="boat-price">
-                          <p className="price">{data.price}</p>
-                          <span>EUR</span>
+                        <div className="boat-content">
+                          <div className="boat-info">
+                            <h3>{data.title}</h3>
+                            <span>
+                              {data.category} | {data.height}m
+                            </span>
+                          </div>
+                          <div className="boat-price">
+                            <p className="price">{data.price}</p>
+                            <span>EUR</span>
+                          </div>
                         </div>
                       </div>
                       <div className="boat-links">
-                        <button onClick={()=> offerForm(data.title)} className="btn-style">
+                        <button
+                          onClick={() => offerForm(data.title)}
+                          className="btn-style"
+                        >
                           {t("common.get_quote")}
                         </button>
                         <button

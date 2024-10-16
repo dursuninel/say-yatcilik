@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import BoatSearchForm from "../components/forms/BoatSearchForm";
 // import { Swiper, SwiperSlide } from "swiper/react";
@@ -8,6 +8,9 @@ import BoatsSlide from "../components/BoatsSlide";
 import NewsSlide from "../components/NewsSlide";
 import { ApiContext } from "../context/ApiContext";
 import { useTranslation } from "react-i18next";
+import Modal from "../components/Modal";
+import GetQuote from "../components/forms/GetQuote";
+import { useLanguage } from "../context/LanguageContext";
 
 const words = [
   "SANLORENZO",
@@ -23,9 +26,9 @@ const words = [
 
 export default function Home() {
   const { apiControl } = useContext(ApiContext);
+  const { activeLanguage } = useLanguage();
   const { t } = useTranslation();
   const navigate = useNavigate();
-
   const goToBlogDetail = (link) => {
     navigate(`/discover/${link}`, {
       state: { link: link },
@@ -42,6 +45,15 @@ export default function Home() {
     navigate(`/news/${link}`, {
       state: { link: link },
     });
+  };
+
+  const [showOffer, setShowOffer] = useState(false);
+
+  const [selectedYacht, setSelectedYacht] = useState("");
+
+  const offerForm = (title) => {
+    setSelectedYacht(title);
+    setShowOffer(true);
   };
 
   return (
@@ -91,28 +103,33 @@ export default function Home() {
               .filter((item) => Number(item.popular) === 1)
               .map((data, key) => (
                 <div className="boat-item" key={key}>
-                  <div className="boat-image">
-                    <img src={data.image} alt={data.title} />
-                    <span className="boat-status">
-                      {data.boat_class === "1"
-                        ? t("status.no_new")
-                        : t("status.new")}
-                    </span>
-                  </div>
-                  <div className="boat-content">
-                    <div className="boat-info">
-                      <h3>{data.title}</h3>
-                      <span>
-                        {data.category} | {data.height}m
+                  <div>
+                    <div className="boat-image">
+                      <img src={data.image} alt={data.title} />
+                      <span className="boat-status">
+                        {data.boat_class === "1"
+                          ? t("status.no_new")
+                          : t("status.new")}
                       </span>
                     </div>
-                    <div className="boat-price">
-                      <p className="price">{data.price}</p>
-                      <span>EUR</span>
+                    <div className="boat-content">
+                      <div className="boat-info">
+                        <h3>{data.title}</h3>
+                        <span>
+                          {data.category} | {data.height}m
+                        </span>
+                      </div>
+                      <div className="boat-price">
+                        <p className="price">{data.price}</p>
+                        <span>EUR</span>
+                      </div>
                     </div>
                   </div>
                   <div className="boat-links">
-                    <button className="btn-style">
+                    <button
+                      onClick={() => offerForm(data.title)}
+                      className="btn-style"
+                    >
                       {t("common.get_quote")}
                     </button>
                     <button
@@ -212,7 +229,7 @@ export default function Home() {
             <Link to={"/yachts"}>{t("module_banner.yachts_link")}</Link>
           </div>
 
-          <BoatsSlide />
+          <BoatsSlide goToDetail={goToYachtDetail} />
         </div>
       </section>
 
@@ -343,25 +360,18 @@ export default function Home() {
           <div className="row align-items-center">
             <div className="col-md-6">
               <div className="about-left">
-                <h2>Say Danışmanlık Hakkında</h2>
-                <div className="content">
-                  <p>
-                    Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır
-                    metinlerdir. Lorem Ipsum, adı bilinmeyen bir matbaacının bir
-                    hurufat numune kitabı oluşturmak üzere bir yazı galerisini
-                    alarak karıştırdığı 1500'lerden beri endüstri standardı
-                    sahte metinler olarak kullanılmıştır.
-                  </p>
-
-                  <p>
-                    Boyunca varlığını sürdürmekle kalmamış, aynı zamanda pek
-                    değişmeden elektronik dizgiye de sıçramıştır. 1960'larda
-                    Lorem Ipsum pasajları da içeren Letraset yapraklarının
-                    yayınlanması ile ve yakın zamanda Aldus PageMaker gibi Lorem
-                    Ipsum sürümleri içeren masaüstü yayıncılık yazılımları ile
-                    popüler olmuştur.
-                  </p>
-                </div>
+                <h2>
+                  {apiControl.aboutTexts.value[`${activeLanguage.code}_title`]}
+                </h2>
+                <div
+                  className="content ex"
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      apiControl.aboutTexts.value[
+                        `${activeLanguage.code}_text`
+                      ],
+                  }}
+                />
 
                 <Link to={"/about-us"} className="btn-style">
                   {t("common.read_more")}
@@ -376,6 +386,14 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <Modal
+        title={t("form.quote_title")}
+        state={showOffer}
+        setState={setShowOffer}
+      >
+        <GetQuote value={selectedYacht} />
+      </Modal>
     </>
   );
 }

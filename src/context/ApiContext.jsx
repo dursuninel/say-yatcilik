@@ -12,6 +12,9 @@ export const ApiProvider = (props) => {
     discover: { status: false, value: [] },
     news: { status: false, value: [] },
     yachts: { status: false, value: [] },
+    categories: { status: false, value: [] },
+    aboutTexts: { status: false, value: [] },
+    aboutImages: { status: false, value: [] },
   });
 
   useEffect(() => {
@@ -22,6 +25,9 @@ export const ApiProvider = (props) => {
         discover: { status: true, value: res.data.discover },
         news: { status: true, value: res.data.news },
         yachts: { status: true, value: res.data.boats },
+        categories: { status: true, value: res.data.categories },
+        aboutTexts: { status: true, value: res.data.aboutTexts },
+        aboutImages: { status: true, value: res.data.aboutImages },
       });
     });
 

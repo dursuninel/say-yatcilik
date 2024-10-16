@@ -59,6 +59,7 @@
     "phone": "Telefon Numaranız",
     "message": "Mesajınız",
     "send": "Gönder",
+    "search": "Arama",
     "title": "Bize Ulaşın",
     "quote_title": "Yat Teklifi Al",
     "news": "E-bültenimize abone olun; yenilikleri ilk siz öğrenin.",
@@ -97,5 +98,8 @@
     "successTitle": "Başarılı",
     "error": "Mesajınız gönderilirken bir hata oluştu",
     "errorTitle": "Başarısız"
+  },
+  "categories": {
+    "starter": "Tüm Tipler"
   }
 }

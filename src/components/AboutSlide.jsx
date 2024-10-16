@@ -1,21 +1,18 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
+import { ApiContext } from "../context/ApiContext";
 
 const AboutSlide = () => {
+  const { apiControl } = useContext(ApiContext);
+
   // Active slide index state
   const [activeIndex, setActiveIndex] = useState(0);
 
   // Swiper instance reference
   const swiperRef = useRef(null);
-
-  // Slide images
-  const slides = [
-    require("../assets/images/about.png"),
-    require("../assets/images/markaTemsilcisi.png"),
-  ];
 
   // Function to handle thumbnail click
   const handleThumbClick = (index) => {
@@ -35,22 +32,22 @@ const AboutSlide = () => {
           onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
           onSwiper={(swiper) => (swiperRef.current = swiper)} // Get swiper instance
         >
-          {slides.map((src, index) => (
+          {apiControl.aboutImages.value.map((data, index) => (
             <SwiperSlide key={index}>
-              <img src={src} alt={`Slide ${index + 1}`} />
+              <img src={data.image} alt={`Slide ${index + 1}`} />
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
 
       <div className="thumb-slider">
-        {slides.map((src, index) => (
+        {apiControl.aboutImages.value.map((data, index) => (
           <div
             key={index}
             className={index === activeIndex ? "active" : ""}
             onClick={() => handleThumbClick(index)}
           >
-            <img src={src} alt={`Thumb ${index + 1}`} />
+            <img src={data.image} alt={`Thumb ${index + 1}`} />
           </div>
         ))}
       </div>

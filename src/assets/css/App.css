@@ -195,10 +195,15 @@ body {
   color: black;
 }
 
+.form-area > div,
 .form-area {
   display: flex;
   align-items: end;
   gap: 1rem;
+}
+
+.extra-gap {
+  gap: 6rem;
 }
 
 .form-area label {
@@ -216,7 +221,7 @@ body {
   height: 100%;
   border: 1px solid var(--grey);
   border-radius: 0.35rem;
-  height: 2.5rem;
+  height: 2.9rem;
   overflow: hidden;
 }
 
@@ -229,7 +234,7 @@ body {
   border-right: 2px solid var(--grey);
 }
 
-.input-error{
+.input-error {
   border-color: red !important;
   box-shadow: 0 0 2px 1px rgba(255, 0, 0, 0.356);
 }
@@ -270,10 +275,28 @@ body {
   position: relative;
 }
 
+@media (max-width: 1200px) {
+  .extra-gap {
+    gap: 3rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .form-area,
+  .form-area > div {
+    justify-content: space-between;
+  }
+}
+
 @media (max-width: 992px) {
-  .form-area {
+  .form-area,
+  .form-area > div {
     flex-direction: column;
     align-items: center;
+  }
+
+  .extra-gap {
+    gap: 1rem;
   }
 
   .form-area > *,
@@ -310,6 +333,14 @@ body {
 
 .about-left .content {
   margin-bottom: 1.25rem;
+}
+
+.about-left .content.ex {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
 }
 
 .about-left .content > *:last-child {
@@ -507,6 +538,10 @@ body {
   transition: all 250ms;
 }
 
+.boat-list .boat-item {
+  transform: scale(1);
+}
+
 .yachts-flex .boat-item {
   width: calc((100% / 2) - 0.5rem);
 }
@@ -547,7 +582,7 @@ body {
   object-fit: cover;
 }
 
-.yachts-body .boat-item a {
+.yachts-body .boat-item button {
   position: absolute;
   bottom: -100%;
   left: 0;
@@ -559,6 +594,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  text-align: start;
   text-decoration: none;
   padding: 0.8rem 2rem;
   font-size: 1.15rem;
@@ -569,8 +605,9 @@ body {
   transition: all 250ms;
 }
 
-.yachts-body .boat-item a:hover {
+.yachts-body .boat-item button:hover {
   background-color: var(--blue-hover);
+  color: white;
 }
 
 .custom-yachts-arrow {
@@ -617,18 +654,18 @@ body {
   .yachts-body .boat-item:after {
     background-color: transparent !important;
   }
-  .yachts-body .boat-item a {
+  .yachts-body .boat-item button {
     bottom: 1rem !important;
   }
 }
 
 @media (min-width: 768px) {
-  .yachts-body .boat-item.swiper-slide-next a {
+  .yachts-body .boat-item.swiper-slide-next button {
     bottom: 1rem;
   }
 }
 
-.yachts-flex .boat-item a {
+.yachts-flex .boat-item button {
   bottom: 1rem;
 }
 
@@ -760,6 +797,9 @@ body {
   overflow: hidden;
   box-shadow: 0 0 5px rgb(0, 0, 0, 0.5);
   border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .boat-image {
@@ -959,11 +999,11 @@ body {
     width: 100%;
   }
 
-  .news-item{
+  .news-item {
     height: 20rem !important;
   }
 
-  .news-item-content h3{
+  .news-item-content h3 {
     font-size: 1.25rem;
   }
 }
@@ -1326,7 +1366,6 @@ footer p {
 }
 
 footer a:hover,
-
 footer p:hover {
   opacity: 1;
   color: var(--main-hover);
@@ -1717,7 +1756,7 @@ footer * {
   padding: 1rem;
 }
 
-.blog_detail{
+.blog_detail {
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1728,18 +1767,18 @@ footer * {
 .form_style {
   display: flex;
   flex-direction: column;
-  gap: .34rem;
+  gap: 0.34rem;
   margin-bottom: 1rem;
 }
 
-.form_style label{
-  font-size: .9rem;
+.form_style label {
+  font-size: 0.9rem;
 }
 
 small.p-error {
   position: absolute;
   bottom: -1.15rem;
-  font-size: .8rem;
+  font-size: 0.8rem;
   left: 0;
 }
 
@@ -1752,6 +1791,26 @@ ul.p-dropdown-items {
   margin: 0;
 }
 
-button.btn-style.w-100:disabled{
+button.btn-style.w-100:disabled {
   background-color: #06424b;
+}
+
+.yachts-filter {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .yachts-filter {
+    flex-direction: column;
+  }
+
+  .yachts-filter > div,
+  .yachts-filter input,
+  .yachts-filter .p-dropdown {
+    width: 100%;
+  }
 }

@@ -5,7 +5,7 @@ import { Navigation } from "swiper/modules";
 import { Link } from "react-router-dom";
 import { ApiContext } from "../context/ApiContext";
 
-const BoatsSlide = () => {
+const BoatsSlide = ({ goToDetail }) => {
   const { apiControl } = useContext(ApiContext);
 
   const prevRef = useRef(null);
@@ -64,9 +64,9 @@ const BoatsSlide = () => {
         {apiControl.yachts.value.map((data, key) => (
           <SwiperSlide key={key} className="boat-item">
             <img src={data.image} alt={data.title} />
-            <Link to={`/boat/${data.link}`}>
+            <button onClick={() => goToDetail(data.link)} className="btn-style">
               {data.title} <i className="fa-solid fa-arrow-right-long"></i>
-            </Link>
+            </button>
           </SwiperSlide>
         ))}
       </Swiper>

@@ -59,6 +59,7 @@
     "phone": "Phone Number",
     "message": "Message",
     "send": "Send",
+    "search": "Search",
     "title": "Contact Us",
     "quote_title": "Get a Yacht Offer",
     "news": "Subscribe to our newsletter to be the first to know about updates.",
@@ -97,5 +98,8 @@
     "successTitle": "Successfully",
     "error": "Failed to send your message.",
     "errorTitle": "Failed"
+  },
+  "categories": {
+    "starter": "All Types"
   }
 }

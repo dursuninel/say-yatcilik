@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import PageBanner from "../components/PageBanner";
 import AboutSlide from "../components/AboutSlide";
-import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { ApiContext } from "../context/ApiContext";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function AboutUs() {
   const { t } = useTranslation();
+  const { apiControl } = useContext(ApiContext);
+  const { activeLanguage } = useLanguage();
 
   return (
     <>
@@ -23,33 +26,18 @@ export default function AboutUs() {
           <div className="row align-items-center">
             <div className="col-md-6">
               <div className="about-left">
-                <h2>Say Danışmanlık Hakkında</h2>
-                <div className="content">
-                  <p>
-                    Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır
-                    metinlerdir. Lorem Ipsum, adı bilinmeyen bir matbaacının bir
-                    hurufat numune kitabı oluşturmak üzere bir yazı galerisini
-                    alarak karıştırdığı 1500'lerden beri endüstri standardı
-                    sahte metinler olarak kullanılmıştır.
-                  </p>
-
-                  <p>
-                    Boyunca varlığını sürdürmekle kalmamış, aynı zamanda pek
-                    değişmeden elektronik dizgiye de sıçramıştır. 1960'larda
-                    Lorem Ipsum pasajları da içeren Letraset yapraklarının
-                    yayınlanması ile ve yakın zamanda Aldus PageMaker gibi Lorem
-                    Ipsum sürümleri içeren masaüstü yayıncılık yazılımları ile
-                    popüler olmuştur.
-                  </p>
-
-                  <p>
-                    Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır
-                    metinlerdir. Lorem Ipsum, adı bilinmeyen bir matbaacının bir
-                    hurufat numune kitabı oluşturmak üzere bir yazı galerisini
-                    alarak karıştırdığı 1500'lerden beri endüstri standardı
-                    sahte metinler olarak kullanılmıştır.
-                  </p>
-                </div>
+                <h2>
+                  {apiControl.aboutTexts.value[`${activeLanguage.code}_title`]}
+                </h2>
+                <div
+                  className="content"
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      apiControl.aboutTexts.value[
+                        `${activeLanguage.code}_text`
+                      ],
+                  }}
+                />
               </div>
             </div>
             <div className="col-md-6 about-mobile-right">
