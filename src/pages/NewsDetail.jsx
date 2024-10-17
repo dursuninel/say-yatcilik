@@ -16,7 +16,6 @@ export default function NewsDetail() {
   const [data, setData] = useState(null);
 
   const goToDetail = (link) => {
-    console.log("asd");
     navigate(`/news/${link}`, {
       state: { link: link },
     });
@@ -32,7 +31,6 @@ export default function NewsDetail() {
       setLoad(false);
     } else {
       navigate("/news");
-      // console.log(datas)
     }
   }, [state]);
 

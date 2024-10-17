@@ -35,7 +35,6 @@ export default function DiscoverDetail() {
       setLoad(false);
     } else {
       navigate("/discover");
-      // console.log(datas)
     }
   }, [state]);
 

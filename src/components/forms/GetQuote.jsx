@@ -78,9 +78,15 @@ const GetQuote = ({ value, setState }) => {
           setSending(false);
         });
       } catch (error) {
+        toast.error(
+          <>
+            <div>
+              <strong>{t("toast.errorTitle")}</strong>
+              <div>{t("toast.error")}</div>
+            </div>
+          </>
+        );
         setSending(false);
-
-        console.log(error);
       }
     },
   });

@@ -19,7 +19,6 @@ export const ApiProvider = (props) => {
 
   useEffect(() => {
     axios.get(`/webData/${activeLanguage.code}`).then((res) => {
-      console.log(res.data);
       setApiControl({
         ...apiControl,
         discover: { status: true, value: res.data.discover },

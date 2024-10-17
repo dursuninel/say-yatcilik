@@ -37,7 +37,6 @@ export default function YachtDetail() {
       setLoad(false);
     } else {
       navigate("/yachts");
-      // console.log(datas)
     }
   }, [state]);
 
