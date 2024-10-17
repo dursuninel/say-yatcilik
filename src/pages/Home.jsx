@@ -384,7 +384,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+      
       <Modal
         title={t("form.quote_title")}
         state={showOffer}
