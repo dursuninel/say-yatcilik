@@ -36,7 +36,7 @@
     "read_more": "Read More",
     "detail_info": "Detailed Info",
     "get_quote": "Get a Quote",
-    "more": "More"
+    "more": "Read More"
   },
   "module_banner": {
     "yachts_title": "Choose Your Style",
@@ -95,8 +95,12 @@
   },
   "toast": {
     "success": "Your message has been sent successfully.",
+    "successNewsletter": "Your registration has been successfully received",
+
     "successTitle": "Successfully",
     "error": "Failed to send your message.",
+    "errorNewsletter": "Your registration could not be retrieved",
+
     "errorTitle": "Failed"
   },
   "categories": {

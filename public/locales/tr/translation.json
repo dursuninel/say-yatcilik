@@ -95,8 +95,10 @@
   },
   "toast": {
     "success": "Mesajınız başarıyla gönderildi",
+    "successNewsletter": "Kaydınız başarıyla alınmıştır",
     "successTitle": "Başarılı",
     "error": "Mesajınız gönderilirken bir hata oluştu",
+    "errorNewsletter": "Kaydınız alınamadı",
     "errorTitle": "Başarısız"
   },
   "categories": {

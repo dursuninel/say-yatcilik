@@ -68,7 +68,7 @@ export default function YachtDetail() {
             state={showOffer}
             setState={setShowOffer}
           >
-            <GetQuote value={selectedYacht} />
+            <GetQuote setState={setShowOffer} value={selectedYacht} />
           </Modal>
 
           <section>

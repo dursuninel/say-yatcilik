@@ -65,27 +65,23 @@ export default function AboutUs() {
       <section>
         <div className="container">
           <div className="module-header">
-            <h2>Say Danışmanlık Deneyimi</h2>
-            <p>
-              İhtiyacınızın ve isteklerinizin sınırı ne olursa olsun huzurlu bir
-              tekne tatili vadederek her türden denizciye uygun alternatifler
-              sunmayı hedefliyoruz.
-            </p>
+            <h2>{t("module_banner.exp_title")}</h2>
+            <p>{t("module_banner.exp_text")}</p>
           </div>
 
           <div className="module_body">
             <div className="image-list">
               <div>
-                <img src={require("../assets/images/boat1.png")} alt="" />
+                <img src={require("../assets/images/boat1.png")} alt="Boat" />
               </div>
               <div>
-                <img src={require("../assets/images/boat2.png")} alt="" />
+                <img src={require("../assets/images/boat2.png")} alt="Boat" />
               </div>
               <div>
-                <img src={require("../assets/images/boat3.png")} alt="" />
+                <img src={require("../assets/images/boat3.png")} alt="Boat" />
               </div>
               <div>
-                <img src={require("../assets/images/i4.png")} alt="" />
+                <img src={require("../assets/images/i4.png")} alt="Boat" />
               </div>
             </div>
           </div>

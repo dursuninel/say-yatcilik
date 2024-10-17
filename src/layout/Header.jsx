@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 
 export default function Header({ changeDomLanguage }) {
   const [menu, setMenu] = useState(false);
-  const { languages, changeLanguage } = useLanguage();
+  const { activeLanguage, languages, changeLanguage } = useLanguage();
   const { t } = useTranslation();
 
   const { pathname } = useLocation();
@@ -30,18 +30,27 @@ export default function Header({ changeDomLanguage }) {
           </div>
           <div className="lang-main">
             <p className="lang-links">
-              {languages.map((data, key) => (
-                <span
-                  key={key}
-                  className="link"
-                  onClick={() => {
-                    changeLanguage(data.id);
-                    changeDomLanguage(data.code);
-                  }}
-                >
-                  {data.title}
-                </span>
-              ))}
+              {languages.map((data, key) =>
+                activeLanguage.code === data.code ? (
+                  <span
+                    key={key}
+                    className="link"
+                  >
+                    {data.title}
+                  </span>
+                ) : (
+                  <span
+                    key={key}
+                    className="link"
+                    onClick={() => {
+                      changeLanguage(data.id);
+                      changeDomLanguage(data.code);
+                    }}
+                  >
+                    {data.title}
+                  </span>
+                )
+              )}
               {/* <span>|</span> */}
               {/* <span className="link">EN</span> */}
             </p>

@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const GetQuote = ({ value }) => {
+const GetQuote = ({ value, setState }) => {
   const { apiControl } = useContext(ApiContext);
   const { t } = useTranslation(); // i18n hook
 
@@ -47,7 +47,7 @@ const GetQuote = ({ value }) => {
       yacht: Yup.string().required(t("form.validation.yacht")),
       message: Yup.string().required(t("form.validation.message")),
     }),
-    onSubmit: (values) => {
+    onSubmit: (values, { resetForm }) => {
       try {
         setSending(true);
         axios.post("/addOffer", values).then((res) => {
@@ -62,6 +62,9 @@ const GetQuote = ({ value }) => {
                 </div>
               </>
             );
+
+            resetForm();
+            setState(false);
           } else {
             toast.error(
               <>

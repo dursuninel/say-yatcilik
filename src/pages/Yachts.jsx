@@ -124,7 +124,7 @@ export default function Yachts() {
         state={showOffer}
         setState={setShowOffer}
       >
-        <GetQuote value={selectedYacht} />
+        <GetQuote setState={setShowOffer} value={selectedYacht} />
       </Modal>
     </>
   );

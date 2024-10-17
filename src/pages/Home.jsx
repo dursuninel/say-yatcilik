@@ -11,6 +11,7 @@ import { useTranslation } from "react-i18next";
 import Modal from "../components/Modal";
 import GetQuote from "../components/forms/GetQuote";
 import { useLanguage } from "../context/LanguageContext";
+import NewsletterForm from "../components/forms/NewsletterForm";
 
 const words = [
   "SANLORENZO",
@@ -290,10 +291,7 @@ export default function Home() {
           <div className="newsletter_area">
             <h2 className="text-center">{t("form.news")}</h2>
             <div>
-              <form>
-                <input type="text" placeholder="E-mail adresiniz" />
-                <button className="btn-style">{t("form.register")}</button>
-              </form>
+              <NewsletterForm />
             </div>
           </div>
         </div>
@@ -392,7 +390,7 @@ export default function Home() {
         state={showOffer}
         setState={setShowOffer}
       >
-        <GetQuote value={selectedYacht} />
+        <GetQuote setState={setShowOffer} value={selectedYacht} />
       </Modal>
     </>
   );
