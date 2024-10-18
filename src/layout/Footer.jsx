@@ -39,23 +39,21 @@ export default function Footer() {
                 <p className="title">{t("global.social")}</p>
                 <ul className="social_media">
                   <li>
-                    <a href="/">
+                    <a
+                      href="https://www.instagram.com/sayyachting?igsh=cDVkMW5tZHRqcDh6"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       <i className="fa-brands fa-instagram"></i>
                     </a>
                   </li>
                   <li>
-                    <a href="/">
+                    <a
+                      href="https://tr.linkedin.com/company/say-yachting"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       <i className="fa-brands fa-linkedin-in"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/">
-                      <i className="fa-brands fa-x-twitter"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/">
-                      <i className="fa-brands fa-facebook-f"></i>
                     </a>
                   </li>
                 </ul>
