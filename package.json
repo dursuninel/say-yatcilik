@@ -9,6 +9,7 @@
     "axios": "^1.7.7",
     "cross-env": "^7.0.3",
     "formik": "^2.4.6",
+    "fs": "^0.0.1-security",
     "i18next": "^23.15.2",
     "i18next-browser-languagedetector": "^8.0.0",
     "i18next-http-backend": "^2.6.2",
@@ -28,6 +29,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "generate-sitemap": "node ./src/sitemap-generator.js",
     "build": "cross-env GENERATE_SOURCEMAP=false CI=false react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
