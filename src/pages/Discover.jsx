@@ -1,16 +1,33 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import PageBanner from "../components/PageBanner";
-import AboutSlide from "../components/AboutSlide";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ApiContext } from "../context/ApiContext";
 import { useTranslation } from "react-i18next";
+import ReactGA from "react-ga4";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Discover() {
   const { apiControl } = useContext(ApiContext);
 
+  const { activeLanguage } = useLanguage();
+
+  useEffect(() => {
+    ReactGA.send({
+      hitType: "pageview",
+      page: window.location.pathname,
+      title: `Keşfet - ${activeLanguage.code.toUpperCase()}`,
+    });
+  }, [activeLanguage]);
+
   const navigate = useNavigate();
 
-  const goToDetail = (link) => {
+  const goToDetail = (link, title) => {
+    ReactGA.event({
+      category: "Blog",
+      action: "Bloğa tıklandı",
+      label: title,
+    });
+
     navigate(`/discover/${link}`, {
       state: { link: link },
     });
@@ -43,7 +60,7 @@ export default function Discover() {
                     dangerouslySetInnerHTML={{ __html: data.content }}
                   />
 
-                  <button onClick={() => goToDetail(data.link)}>
+                  <button onClick={() => goToDetail(data.link, data.title)}>
                     {t("common.read_more")}
                   </button>
                 </div>

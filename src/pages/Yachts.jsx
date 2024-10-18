@@ -6,6 +6,8 @@ import { useTranslation } from "react-i18next";
 import Modal from "../components/Modal";
 import GetQuote from "../components/forms/GetQuote";
 import BoatSearchForm from "../components/forms/BoatSearchForm";
+import ReactGA from "react-ga4";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Yachts() {
   const { apiControl } = useContext(ApiContext);
@@ -31,6 +33,16 @@ export default function Yachts() {
     [searchParams]
   );
 
+  const { activeLanguage } = useLanguage();
+
+  useEffect(() => {
+    ReactGA.send({
+      hitType: "pageview",
+      page: window.location.pathname,
+      title: `Yatlar - ${activeLanguage.code.toUpperCase()}`,
+    });
+  }, [activeLanguage]);
+
   // Parametrelere göre yatları filtrele
   useEffect(() => {
     const filtered = apiControl.yachts.value.filter((yacht) => {
@@ -48,7 +60,13 @@ export default function Yachts() {
     setFilteredYachts(filtered);
   }, [defaultValues, apiControl.yachts.value]);
 
-  const goToDetail = (link) => {
+  const goToDetail = (link, title) => {
+    ReactGA.event({
+      category: "Yatlar",
+      action: "Yata tıklandı",
+      label: title,
+    });
+
     navigate(`/yacht/${link}`, {
       state: { link: link },
     });
@@ -107,7 +125,7 @@ export default function Yachts() {
                     {t("common.get_quote")}
                   </button>
                   <button
-                    onClick={() => goToDetail(data.link)}
+                    onClick={() => goToDetail(data.link, data.title)}
                     className="btn-style"
                   >
                     {t("common.detail_info")}

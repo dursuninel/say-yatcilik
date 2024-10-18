@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { ApiContext } from "../context/ApiContext";
 import Loader from "../components/Loader";
 import { useTranslation } from "react-i18next";
+import ReactGA from "react-ga4";
 
 export default function DiscoverDetail() {
   const { apiControl } = useContext(ApiContext);
@@ -16,6 +17,13 @@ export default function DiscoverDetail() {
   const [data, setData] = useState(null);
 
   const goToBlogDetail = (link) => {
+    ReactGA.event({
+      category: "Blog",
+      action: "Bloğa tıklandı",
+      label: data?.title,
+      value: "",
+    });
+
     navigate(`/discover/${link}`, {
       state: { link: link },
     });
@@ -37,7 +45,6 @@ export default function DiscoverDetail() {
       navigate("/discover");
     }
   }, [state]);
-
 
   return (
     <>
@@ -76,7 +83,7 @@ export default function DiscoverDetail() {
                         />
 
                         <button onClick={() => goToBlogDetail(data.link)}>
-                        {t("common.read_more")}
+                          {t("common.read_more")}
                         </button>
                       </div>
                     </div>

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import BoatSearchForm from "../components/forms/BoatSearchForm";
 // import { Swiper, SwiperSlide } from "swiper/react";
@@ -12,6 +12,7 @@ import Modal from "../components/Modal";
 import GetQuote from "../components/forms/GetQuote";
 import { useLanguage } from "../context/LanguageContext";
 import NewsletterForm from "../components/forms/NewsletterForm";
+import ReactGA from "react-ga4";
 
 const words = [
   "SANLORENZO",
@@ -35,6 +36,14 @@ export default function Home() {
       state: { link: link },
     });
   };
+
+  useEffect(() => {
+    ReactGA.send({
+      hitType: "pageview",
+      page: window.location.pathname,
+      title: `Anasayfa - ${activeLanguage.code.toUpperCase()}`,
+    });
+  }, [activeLanguage]);
 
   const goToYachtDetail = (link) => {
     navigate(`/yacht/${link}`, {
@@ -384,7 +393,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
+
       <Modal
         title={t("form.quote_title")}
         state={showOffer}

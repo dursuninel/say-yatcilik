@@ -8,6 +8,7 @@ import News from "./pages/News";
 import YachtDetail from "./pages/YachtDetail";
 import { ToastContainer } from "react-toastify";
 import NewsDetail from "./pages/NewsDetail";
+import ReactGA from "react-ga4";
 
 // Lazy loading for pages
 const Home = lazy(() => import("./pages/Home"));
@@ -19,6 +20,8 @@ const Discover = lazy(() => import("./pages/Discover"));
 const DiscoverDetail = lazy(() => import("./pages/DiscoverDetail"));
 
 export default function App() {
+  ReactGA.initialize("G-ERETPPKSH9");
+
   const { i18n, t } = useTranslation();
 
   const changeLanguage = (lng) => {

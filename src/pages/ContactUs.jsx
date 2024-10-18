@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PageBanner from "../components/PageBanner";
-import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import ContactForm from "../components/forms/ContactForm";
+import ReactGA from "react-ga4";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function ContactUs() {
   const { t } = useTranslation();
+  const { activeLanguage } = useLanguage();
+
+  useEffect(() => {
+    ReactGA.send({
+      hitType: "pageview",
+      page: window.location.pathname,
+      title: `İletişim - ${activeLanguage.code.toUpperCase()}`,
+    });
+  }, [activeLanguage]);
   return (
     <>
       <PageBanner

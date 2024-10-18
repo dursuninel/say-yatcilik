@@ -1,14 +1,23 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import PageBanner from "../components/PageBanner";
 import AboutSlide from "../components/AboutSlide";
 import { useTranslation } from "react-i18next";
 import { ApiContext } from "../context/ApiContext";
 import { useLanguage } from "../context/LanguageContext";
+import ReactGA from "react-ga4";
 
 export default function AboutUs() {
   const { t } = useTranslation();
   const { apiControl } = useContext(ApiContext);
   const { activeLanguage } = useLanguage();
+  
+  useEffect(() => {
+    ReactGA.send({
+      hitType: "pageview",
+      page: window.location.pathname,
+      title: `Hakkımızda - ${activeLanguage.code.toUpperCase()}`,
+    });
+  }, [activeLanguage]);
 
   return (
     <>

@@ -6,6 +6,8 @@ import Loader from "../components/Loader";
 import { useTranslation } from "react-i18next";
 import Modal from "../components/Modal";
 import GetQuote from "../components/forms/GetQuote";
+import ReactGA from "react-ga4";
+
 export default function YachtDetail() {
   const { apiControl } = useContext(ApiContext);
 
@@ -19,7 +21,13 @@ export default function YachtDetail() {
 
   const [selectedYacht, setSelectedYacht] = useState("");
 
-  const goToDetail = (link) => {
+  const goToDetail = (link, title) => {
+    ReactGA.event({
+      category: "Yatlar",
+      action: "Yata tıklandı",
+      label: title,
+    });
+
     navigate(`/yacht/${link}`, {
       state: { link: link },
     });
@@ -107,7 +115,7 @@ export default function YachtDetail() {
                           {t("common.get_quote")}
                         </button>
                         <button
-                          onClick={() => goToDetail(data.link)}
+                          onClick={() => goToDetail(data.link, data.title)}
                           className="btn-style"
                         >
                           {t("common.detail_info")}
