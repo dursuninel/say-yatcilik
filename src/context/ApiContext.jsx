@@ -3,7 +3,7 @@ import { createContext, useEffect, useState } from "react";
 import { useLanguage } from "./LanguageContext";
 
 export const ApiContext = createContext();
-axios.defaults.baseURL = "http://localhost:5001";
+axios.defaults.baseURL = "https://api.sayyachting.com";
 
 export const ApiProvider = (props) => {
   const { activeLanguage } = useLanguage();

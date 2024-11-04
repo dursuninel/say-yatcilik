@@ -7,6 +7,11 @@ import { useTranslation } from "react-i18next";
 import Modal from "../components/Modal";
 import GetQuote from "../components/forms/GetQuote";
 import ReactGA from "react-ga4";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, EffectFade } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/pagination";
 
 export default function YachtDetail() {
   const { apiControl } = useContext(ApiContext);
@@ -66,9 +71,42 @@ export default function YachtDetail() {
                 title: data.title,
               },
             ]}
-            image={data.image}
-            content={<div dangerouslySetInnerHTML={{ __html: data.content }} />}
+            // image={data.image}
           />
+          <section>
+            <div className="container">
+              <h2 className="text-center mb-3">
+                {data.title}
+              </h2>
+              <div className="yachts_detail_flex">
+                <div className="">
+                  <Swiper
+                    className="yachts_detail_images"
+                    loop={true}
+                    modules={[Pagination]}
+                    pagination={{ clickable: true }}
+                    spaceBetween={16}
+                    slidesPerView={1}
+                  >
+                    <SwiperSlide>
+                      <img src={data.image} alt="" />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <img
+                        src={
+                          "https://storage.googleapis.com/say_danismanlik_storage/1728896641964.png"
+                        }
+                        alt=""
+                      />
+                    </SwiperSlide>
+                  </Swiper>
+                </div>
+                <div>
+                  <div dangerouslySetInnerHTML={{ __html: data.content }} />
+                </div>
+              </div>
+            </div>
+          </section>
 
           <Modal
             title={t("form.quote_title")}
