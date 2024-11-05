@@ -63,7 +63,7 @@ const BoatsSlide = ({ goToDetail }) => {
       >
         {apiControl.yachts.value.map((data, key) => (
           <SwiperSlide key={key} className="boat-item">
-            <img src={data.image} alt={data.title} />
+            <img src={JSON.parse(data.image)[0]} alt={data.title} />
             <button onClick={() => goToDetail(data.link)} className="btn-style">
               {data.title} <i className="fa-solid fa-arrow-right-long"></i>
             </button>

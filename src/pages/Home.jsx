@@ -115,7 +115,7 @@ export default function Home() {
                 <div className="boat-item" key={key}>
                   <div>
                     <div className="boat-image">
-                      <img src={data.image} alt={data.title} />
+                      <img src={JSON.parse(data.image)[0]} alt={data.title} />
                       <span className="boat-status">
                         {data.boat_class === "1"
                           ? t("status.no_new")

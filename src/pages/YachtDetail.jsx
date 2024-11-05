@@ -75,9 +75,7 @@ export default function YachtDetail() {
           />
           <section>
             <div className="container">
-              <h2 className="text-center mb-3">
-                {data.title}
-              </h2>
+              <h2 className="text-center mb-3">{data.title}</h2>
               <div className="yachts_detail_flex">
                 <div className="">
                   <Swiper
@@ -88,17 +86,11 @@ export default function YachtDetail() {
                     spaceBetween={16}
                     slidesPerView={1}
                   >
-                    <SwiperSlide>
-                      <img src={data.image} alt="" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <img
-                        src={
-                          "https://storage.googleapis.com/say_danismanlik_storage/1728896641964.png"
-                        }
-                        alt=""
-                      />
-                    </SwiperSlide>
+                    {JSON.parse(data.image).map((item, key) => (
+                      <SwiperSlide key={key}>
+                        <img src={item} alt="Say" />
+                      </SwiperSlide>
+                    ))}
                   </Swiper>
                 </div>
                 <div>
@@ -125,7 +117,7 @@ export default function YachtDetail() {
                     <div className="boat-item" key={key}>
                       <div>
                         <div className="boat-image">
-                          <img src={data.image} alt={data.title} />
+                          <img src={JSON.parse(data.image)[0]} alt={data.title} />
                           <span className="boat-status">
                             {data.boat_class === "1"
                               ? t("status.no_new")
