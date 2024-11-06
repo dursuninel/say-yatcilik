@@ -20,7 +20,7 @@ const Discover = lazy(() => import("./pages/Discover"));
 const DiscoverDetail = lazy(() => import("./pages/DiscoverDetail"));
 
 export default function App() {
-  // ReactGA.initialize("G-ERETPPKSH9");
+  ReactGA.initialize("G-ERETPPKSH9");
 
   const { i18n, t } = useTranslation();
 
