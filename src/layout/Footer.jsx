@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { ApiContext } from "../context/ApiContext";
 
 export default function Footer() {
   const { t } = useTranslation();
+
+  const { apiControl } = useContext(ApiContext);
 
   return (
     <>
@@ -15,8 +18,18 @@ export default function Footer() {
                 <p className="title">{t("global.phone")}</p>
                 <ul>
                   <li>
-                    <a href="tel:902124714477" title="0212 471 4477">
-                      0212 471 4477
+                    <a
+                      href={
+                        apiControl.settings.value.phone
+                          ? `tel:9${apiControl.settings.value?.phone.replaceAll(
+                              " ",
+                              ""
+                            )}`
+                          : "tel:"
+                      }
+                      title={apiControl.settings.value?.phone}
+                    >
+                      {apiControl.settings.value?.phone}
                     </a>
                   </li>
                 </ul>
@@ -26,10 +39,10 @@ export default function Footer() {
                 <ul>
                   <li>
                     <a
-                      href="mailto:info@sayyachting.com"
-                      title="info@sayyachting.com"
+                      href={`mailto:${apiControl.settings.value?.email}`}
+                      title={apiControl.settings.value?.email}
                     >
-                      info@sayyachting.com
+                      {apiControl.settings.value?.email}
                     </a>
                   </li>
                 </ul>
@@ -62,10 +75,7 @@ export default function Footer() {
                 <p className="title">Konum</p>
                 <ul>
                   <li>
-                    <p>
-                      Osmangazi mah. Mareşal Fevzi Çakmak Cad. No 42 Esenyurt /
-                      İstanbul
-                    </p>
+                    <p>{apiControl.settings.value?.address}</p>
                   </li>
                 </ul>
               </div>

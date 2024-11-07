@@ -70,7 +70,7 @@ export default function Home() {
     <>
       {/* Banner */}
       <section className="banner">
-        <div className="banner-bg"></div>
+        <div className="banner-bg" style={{backgroundImage: `url('${apiControl.settings.value?.banner_image}')`}}></div>
 
         <div className="banner-content">
           <div className="container">

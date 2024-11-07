@@ -15,6 +15,7 @@ export const ApiProvider = (props) => {
     categories: { status: false, value: [] },
     aboutTexts: { status: false, value: [] },
     aboutImages: { status: false, value: [] },
+    settings: { status: false, value: [] },
   });
 
   useEffect(() => {
@@ -27,6 +28,7 @@ export const ApiProvider = (props) => {
         categories: { status: true, value: res.data.categories },
         aboutTexts: { status: true, value: res.data.aboutTexts },
         aboutImages: { status: true, value: res.data.aboutImages },
+        settings: { status: true, value: res.data.settings },
       });
     });
 
