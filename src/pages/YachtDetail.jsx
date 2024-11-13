@@ -8,7 +8,9 @@ import Modal from "../components/Modal";
 import GetQuote from "../components/forms/GetQuote";
 import ReactGA from "react-ga4";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, EffectFade } from "swiper/modules";
+import { Pagination, Navigation, Thumbs } from "swiper/modules";
+import { Image } from "primereact/image";
+
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/pagination";
@@ -58,6 +60,8 @@ export default function YachtDetail() {
     setShowOffer(true);
   };
 
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+
   return (
     <>
       {load === false && data ? (
@@ -80,15 +84,34 @@ export default function YachtDetail() {
                 <div className="">
                   <Swiper
                     className="yachts_detail_images"
-                    loop={true}
-                    modules={[Pagination]}
-                    pagination={{ clickable: true }}
+                    loop={true} // Enable loop
+                    modules={[Navigation, Thumbs]} // Add Thumbs and Navigation modules
+                    pagination={{ clickable: true }} // Enable pagination
+                    navigation // Enable next/prev arrows
                     spaceBetween={16}
                     slidesPerView={1}
+                    thumbs={{ swiper: thumbsSwiper }} // Link to thumbs swiper
                   >
                     {JSON.parse(data.image).map((item, key) => (
                       <SwiperSlide key={key}>
-                        <img src={item} alt="Say" />
+                        <Image src={item} alt="Say" preview />
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
+
+                  {/* Thumbs Swiper for the thumbnail navigation */}
+                  <Swiper
+                    onSwiper={setThumbsSwiper} // Set the thumbs swiper instance
+                    loop={true} // Enable loop for the thumbs swiper
+                    spaceBetween={8}
+                    slidesPerView={5} // Number of thumbnail slides visible at once
+                    freeMode={true} // Allow free scrolling
+                    watchSlidesProgress={true} // Enable slide progress watching
+                    className="thumbnail mt-2"
+                  >
+                    {JSON.parse(data.image).map((item, key) => (
+                      <SwiperSlide key={key}>
+                        <img src={item} alt="Thumbnail" />
                       </SwiperSlide>
                     ))}
                   </Swiper>
@@ -117,7 +140,10 @@ export default function YachtDetail() {
                     <div className="boat-item" key={key}>
                       <div>
                         <div className="boat-image">
-                          <img src={JSON.parse(data.image)[0]} alt={data.title} />
+                          <img
+                            src={JSON.parse(data.image)[0]}
+                            alt={data.title}
+                          />
                           <span className="boat-status">
                             {data.boat_class === "1"
                               ? t("status.no_new")

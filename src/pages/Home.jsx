@@ -155,8 +155,85 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Markalar */}
-      <section style={{ marginTop: "6rem" }}>
+     
+
+      {/* Tekne Kategorileri */}
+      <section className="boat-bg mb-0">
+        <div className="container">
+          <div className="yachts-header">
+            <h2 className="text-white">{t("module_banner.yachts_title")}</h2>
+            <Link to={"/yachts"}>{t("module_banner.yachts_link")}</Link>
+          </div>
+
+          <BoatsSlide goToDetail={goToYachtDetail} />
+        </div>
+      </section>
+
+      {/* Say Danışmanlık Deneyimi */}
+      {/* <section>
+        <div className="container">
+          <div className="module-header">
+            <h2>{t("module_banner.exp_title")}</h2>
+            <p>{t("module_banner.exp_text")}</p>
+          </div>
+
+          <div className="module_body">
+            <div className="image-list">
+              <div>
+                <img src={require("../assets/images/boat1.png")} alt="Boat" />
+              </div>
+              <div>
+                <img src={require("../assets/images/boat2.png")} alt="Boat" />
+              </div>
+              <div>
+                <img src={require("../assets/images/boat3.png")} alt="Boat" />
+              </div>
+              <div>
+                <img src={require("../assets/images/i4.png")} alt="Boat" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> */}
+
+      {/* Tekne Görseli */}
+      {/* <section style={{ marginTop: "6rem" }}>
+        <div className="container">
+          <img
+            src={require("../assets/images/yat.png")}
+            alt="Yat Görseli"
+            width={"100%"}
+            style={{ borderRadius: "1rem" }}
+          />
+        </div>
+      </section> */}
+
+      {/* Haberler */}
+      <section className="boat-bg more-mb">
+        <div className="container">
+          <div className="yachts-header mb-3">
+            <h2 className="text-white">{t("module_banner.news_title")} </h2>
+            <Link to={"/news"}>{t("module_banner.see_all")}</Link>
+          </div>
+
+          <NewsSlide goToNewsDetail={goToNewsDetail} />
+        </div>
+      </section>
+
+      {/* E bülten */}
+      <section className="newsletter_sec">
+        <div className="container">
+          <div className="newsletter_area">
+            <h2 className="text-center">{t("form.news")}</h2>
+            <div>
+              <NewsletterForm />
+            </div>
+          </div>
+        </div>
+      </section>
+
+       {/* Markalar */}
+       <section style={{ marginTop: "6rem" }}>
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6">
@@ -226,81 +303,6 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Tekne Kategorileri */}
-      <section className="boat-bg">
-        <div className="container">
-          <div className="yachts-header">
-            <h2 className="text-white">{t("module_banner.yachts_title")}</h2>
-            <Link to={"/yachts"}>{t("module_banner.yachts_link")}</Link>
-          </div>
-
-          <BoatsSlide goToDetail={goToYachtDetail} />
-        </div>
-      </section>
-
-      {/* Say Danışmanlık Deneyimi */}
-      <section>
-        <div className="container">
-          <div className="module-header">
-            <h2>{t("module_banner.exp_title")}</h2>
-            <p>{t("module_banner.exp_text")}</p>
-          </div>
-
-          <div className="module_body">
-            <div className="image-list">
-              <div>
-                <img src={require("../assets/images/boat1.png")} alt="Boat" />
-              </div>
-              <div>
-                <img src={require("../assets/images/boat2.png")} alt="Boat" />
-              </div>
-              <div>
-                <img src={require("../assets/images/boat3.png")} alt="Boat" />
-              </div>
-              <div>
-                <img src={require("../assets/images/i4.png")} alt="Boat" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Tekne Görseli */}
-      <section style={{ marginTop: "6rem" }}>
-        <div className="container">
-          <img
-            src={require("../assets/images/yat.png")}
-            alt="Yat Görseli"
-            width={"100%"}
-            style={{ borderRadius: "1rem" }}
-          />
-        </div>
-      </section>
-
-      {/* Haberler */}
-      <section className="boat-bg more-mb">
-        <div className="container">
-          <div className="yachts-header mb-3">
-            <h2 className="text-white">{t("module_banner.news_title")} </h2>
-            <Link to={"/news"}>{t("module_banner.see_all")}</Link>
-          </div>
-
-          <NewsSlide goToNewsDetail={goToNewsDetail} />
-        </div>
-      </section>
-
-      {/* E bülten */}
-      <section className="newsletter_sec">
-        <div className="container">
-          <div className="newsletter_area">
-            <h2 className="text-center">{t("form.news")}</h2>
-            <div>
-              <NewsletterForm />
             </div>
           </div>
         </div>
