@@ -70,7 +70,12 @@ export default function Home() {
     <>
       {/* Banner */}
       <section className="banner">
-        <div className="banner-bg" style={{backgroundImage: `url('${apiControl.settings.value?.banner_image}')`}}></div>
+        <div
+          className="banner-bg"
+          style={{
+            backgroundImage: `url('${apiControl.settings.value?.banner_image}')`,
+          }}
+        ></div>
 
         <div className="banner-content">
           <div className="container">
@@ -155,8 +160,6 @@ export default function Home() {
         </div>
       </section>
 
-     
-
       {/* Tekne Kategorileri */}
       <section className="boat-bg mb-0">
         <div className="container">
@@ -232,8 +235,8 @@ export default function Home() {
         </div>
       </section>
 
-       {/* Markalar */}
-       <section style={{ marginTop: "6rem" }}>
+      {/* Markalar */}
+      <section style={{ marginTop: "6rem" }}>
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6">
@@ -253,54 +256,11 @@ export default function Home() {
             <div className="col-lg-6 brand-mobile-right">
               <div className="brands-right">
                 <div className="brands-flex">
-                  <div>
-                    <img
-                      src={require("../assets/images/saysail.png")}
-                      alt="saysail"
-                    />
-                  </div>
-                  <div>
-                    <img
-                      src={require("../assets/images/moody.png")}
-                      alt="moody"
-                    />
-                  </div>
-                  <div>
-                    <img
-                      src={require("../assets/images/sacs.png")}
-                      alt="sacs"
-                    />
-                  </div>
-                  <div>
-                    <img
-                      src={require("../assets/images/kolay-tekne.png")}
-                      alt="kolay-tekne"
-                    />
-                  </div>
-                  <div>
-                    <img
-                      src={require("../assets/images/jeanneau.png")}
-                      alt="jeanneau"
-                    />
-                  </div>
-                  <div>
-                    <img
-                      src={require("../assets/images/prestige.png")}
-                      alt="prestige"
-                    />
-                  </div>
-                  <div>
-                    <img
-                      src={require("../assets/images/ryck.png")}
-                      alt="ryck"
-                    />
-                  </div>
-                  <div>
-                    <img
-                      src={require("../assets/images/bluegame.png")}
-                      alt="bluegame"
-                    />
-                  </div>
+                  {apiControl.brands.value.length > 0 && apiControl.brands.value.map((item, key) => (
+                    <div key={key}>
+                      <img src={item.image} alt={item.title} />
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>

@@ -16,10 +16,12 @@ export const ApiProvider = (props) => {
     aboutTexts: { status: false, value: [] },
     aboutImages: { status: false, value: [] },
     settings: { status: false, value: [] },
+    brands: { status: false, value: [] },
   });
 
   useEffect(() => {
     axios.get(`/webData/${activeLanguage.code}`).then((res) => {
+      console.log(res.data)
       setApiControl({
         ...apiControl,
         discover: { status: true, value: res.data.discover },
@@ -29,6 +31,7 @@ export const ApiProvider = (props) => {
         aboutTexts: { status: true, value: res.data.aboutTexts },
         aboutImages: { status: true, value: res.data.aboutImages },
         settings: { status: true, value: res.data.settings },
+        brands: { status: true, value: res.data.brands },
       });
     });
 
