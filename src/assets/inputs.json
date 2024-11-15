@@ -1,0 +1,552 @@
+[
+    {
+        "id": 1,
+        "name": "Marka",
+        "type": "text"
+    },
+    {
+        "id": 2,
+        "name": "Model",
+        "type": "text"
+    },
+    {
+        "id": 3,
+        "name": "Motor markası",
+        "type": "text"
+    },
+    {
+        "id": 4,
+        "name": "Motor saati",
+        "type": "text"
+    },
+    {
+        "id": 5,
+        "name": "Kabin sayısı",
+        "type": "text"
+    },
+    {
+        "id": 6,
+        "name": "Wc sayısı",
+        "type": "text"
+    },
+    {
+        "id": 7,
+        "name": "Mürettebat kabin",
+        "type": "text"
+    },
+    {
+        "id": 8,
+        "name": "Mürettebat wc",
+        "type": "text"
+    },
+    {
+        "id": 9,
+        "name": "Baş manevra pervanesi",
+        "type": "text"
+    },
+    {
+        "id": 10,
+        "name": "Arka manevra pervanesi",
+        "type": "text"
+    },
+    {
+        "id": 11,
+        "name": "3. İstasyon",
+        "type": "text"
+    },
+    {
+        "id": 12,
+        "name": "Uzaktan kumandalı joystick",
+        "type": "text"
+    },
+    {
+        "id": 13,
+        "name": "Tekne kontrol sistemi",
+        "type": "text"
+    },
+    {
+        "id": 14,
+        "name": "Jeneratör",
+        "type": "text"
+    },
+    {
+        "id": 15,
+        "name": "Klima",
+        "type": "text"
+    },
+    {
+        "id": 16,
+        "name": "Stabilizer",
+        "type": "text"
+    },
+    {
+        "id": 17,
+        "name": "Gps",
+        "type": "text"
+    },
+    {
+        "id": 18,
+        "name": "Otopilot",
+        "type": "text"
+    },
+    {
+        "id": 19,
+        "name": "Radar",
+        "type": "text"
+    },
+    {
+        "id": 20,
+        "name": "Harita –harita ekranı",
+        "type": "text"
+    },
+    {
+        "id": 21,
+        "name": "Pusula",
+        "type": "text"
+    },
+    {
+        "id": 22,
+        "name": "Hız - Derinlik – Rüzgar göstergesi",
+        "type": "text"
+    },
+    {
+        "id": 23,
+        "name": "Navtex",
+        "type": "text"
+    },
+    {
+        "id": 24,
+        "name": "Telsiz",
+        "type": "text"
+    },
+    {
+        "id": 25,
+        "name": "Sanal çapa",
+        "type": "text"
+    },
+    {
+        "id": 26,
+        "name": "Dock&Go",
+        "type": "text"
+    },
+    {
+        "id": 27,
+        "name": "Borda çıkış kapısı (yan yürüme yolu)",
+        "type": "text"
+    },
+    {
+        "id": 28,
+        "name": "Ocak",
+        "type": "text"
+    },
+    {
+        "id": 29,
+        "name": "Fırın",
+        "type": "text"
+    },
+    {
+        "id": 30,
+        "name": "Mikrodalga",
+        "type": "text"
+    },
+    {
+        "id": 31,
+        "name": "Buzdolabı",
+        "type": "text"
+    },
+    {
+        "id": 32,
+        "name": "Dondurucu",
+        "type": "text"
+    },
+    {
+        "id": 33,
+        "name": "Bulaşık makinası",
+        "type": "text"
+    },
+    {
+        "id": 34,
+        "name": "Çamaşır makinası",
+        "type": "text"
+    },
+    {
+        "id": 35,
+        "name": "Kurutma makinası",
+        "type": "text"
+    },
+    {
+        "id": 36,
+        "name": "Aspiratör",
+        "type": "text"
+    },
+    {
+        "id": 37,
+        "name": "Buz yapıcı",
+        "type": "text"
+    },
+    {
+        "id": 38,
+        "name": "Su yapıcı",
+        "type": "text"
+    },
+    {
+        "id": 39,
+        "name": "Kahve makinası",
+        "type": "text"
+    },
+    {
+        "id": 40,
+        "name": "TV",
+        "type": "text"
+    },
+    {
+        "id": 41,
+        "name": "TV Asansörü",
+        "type": "text"
+    },
+    {
+        "id": 42,
+        "name": "TV Anteni",
+        "type": "text"
+    },
+    {
+        "id": 43,
+        "name": "Uydu",
+        "type": "text"
+    },
+    {
+        "id": 44,
+        "name": "AIS",
+        "type": "text"
+    },
+    {
+        "id": 45,
+        "name": "Projektör",
+        "type": "text"
+    },
+    {
+        "id": 46,
+        "name": "Balık bulucu",
+        "type": "text"
+    },
+    {
+        "id": 47,
+        "name": "Kamera",
+        "type": "text"
+    },
+    {
+        "id": 48,
+        "name": "Pasarella",
+        "type": "text"
+    },
+    {
+        "id": 49,
+        "name": "Hidrolik pasarella",
+        "type": "text"
+    },
+    {
+        "id": 50,
+        "name": "Jetski garajı",
+        "type": "text"
+    },
+    {
+        "id": 51,
+        "name": "Bot garajı",
+        "type": "text"
+    },
+    {
+        "id": 52,
+        "name": "Sualtı aydınlatma",
+        "type": "text"
+    },
+    {
+        "id": 53,
+        "name": "Yüzme platformu",
+        "type": "text"
+    },
+    {
+        "id": 54,
+        "name": "Hareketli yüzme platformu",
+        "type": "text"
+    },
+    {
+        "id": 55,
+        "name": "Tender (bot)",
+        "type": "text"
+    },
+    {
+        "id": 56,
+        "name": "Jetski",
+        "type": "text"
+    },
+    {
+        "id": 57,
+        "name": "Havuzlukta Teak zemin",
+        "type": "text"
+    },
+    {
+        "id": 58,
+        "name": "Flybridge güverte teak zemin",
+        "type": "text"
+    },
+    {
+        "id": 59,
+        "name": "Yan yürüme yollaru teak zemin",
+        "type": "text"
+    },
+    {
+        "id": 60,
+        "name": "Baş oturma grubu teak zemin",
+        "type": "text"
+    },
+    {
+        "id": 61,
+        "name": "DVD",
+        "type": "text"
+    },
+    {
+        "id": 62,
+        "name": "Şarap soğutucu",
+        "type": "text"
+    },
+    {
+        "id": 63,
+        "name": "Sineklik",
+        "type": "text"
+    },
+    {
+        "id": 64,
+        "name": "Elektrikli wc",
+        "type": "text"
+    },
+    {
+        "id": 65,
+        "name": "Webasto",
+        "type": "text"
+    },
+    {
+        "id": 66,
+        "name": "Güvenlik kasası",
+        "type": "text"
+    },
+    {
+        "id": 67,
+        "name": "Havuzlukta buzdolabı",
+        "type": "text"
+    },
+    {
+        "id": 68,
+        "name": "Havuzlukta oturma grubu",
+        "type": "text"
+    },
+    {
+        "id": 69,
+        "name": "Havuzlukta lavabo",
+        "type": "text"
+    },
+    {
+        "id": 70,
+        "name": "Havuzlukta dondurucu",
+        "type": "text"
+    },
+    {
+        "id": 71,
+        "name": "Havuzlukta ızgara",
+        "type": "text"
+    },
+    {
+        "id": 72,
+        "name": "Güneşlenme minderleri",
+        "type": "text"
+    },
+    {
+        "id": 73,
+        "name": "Flybridge güneşlenme minderleri",
+        "type": "text"
+    },
+    {
+        "id": 74,
+        "name": "Flybridge elektrikli tente",
+        "type": "text"
+    },
+    {
+        "id": 75,
+        "name": "Flybridge bimini",
+        "type": "text"
+    },
+    {
+        "id": 76,
+        "name": "Flybridge hardtop",
+        "type": "text"
+    },
+    {
+        "id": 77,
+        "name": "Flybridge ızgara",
+        "type": "text"
+    },
+    {
+        "id": 78,
+        "name": "Flybridge buzdolabı",
+        "type": "text"
+    },
+    {
+        "id": 79,
+        "name": "Flybridge dondurucu",
+        "type": "text"
+    },
+    {
+        "id": 80,
+        "name": "Flybridge lavabo",
+        "type": "text"
+    },
+    {
+        "id": 81,
+        "name": "Flybridge oturma grubu",
+        "type": "text"
+    },
+    {
+        "id": 82,
+        "name": "Flybridge TV",
+        "type": "text"
+    },
+    {
+        "id": 83,
+        "name": "Flybridge vinç",
+        "type": "text"
+    },
+    {
+        "id": 84,
+        "name": "Güneş paneli",
+        "type": "text"
+    },
+    {
+        "id": 85,
+        "name": "220 V sahil kablosu",
+        "type": "text"
+    },
+    {
+        "id": 86,
+        "name": "Invertör",
+        "type": "text"
+    },
+    {
+        "id": 87,
+        "name": "Redresör",
+        "type": "text"
+    },
+    {
+        "id": 88,
+        "name": "Aküler",
+        "type": "text"
+    },
+    {
+        "id": 89,
+        "name": "Kışlık kapama örtüsü",
+        "type": "text"
+    },
+    {
+        "id": 90,
+        "name": "Ses sistemi",
+        "type": "text"
+    },
+    {
+        "id": 91,
+        "name": "Dış ses sistemi",
+        "type": "text"
+    },
+    {
+        "id": 92,
+        "name": "Yüzme merdiveni",
+        "type": "text"
+    },
+    {
+        "id": 93,
+        "name": "Matafora",
+        "type": "text"
+    },
+    {
+        "id": 94,
+        "name": "Hidrolik matafora",
+        "type": "text"
+    },
+    {
+        "id": 95,
+        "name": "Kokpit ırgat kontrolü",
+        "type": "text"
+    },
+    {
+        "id": 96,
+        "name": "Elektrikli matafora vinç",
+        "type": "text"
+    },
+    {
+        "id": 97,
+        "name": "Çapa",
+        "type": "text"
+    },
+    {
+        "id": 98,
+        "name": "Yedek çapa",
+        "type": "text"
+    },
+    {
+        "id": 99,
+        "name": "Zincir",
+        "type": "text"
+    },
+    {
+        "id": 100,
+        "name": "Zincir sayacı",
+        "type": "text"
+    },
+    {
+        "id": 101,
+        "name": "Usturmaça",
+        "type": "text"
+    },
+    {
+        "id": 102,
+        "name": "Koltuk halatları",
+        "type": "text"
+    },
+    {
+        "id": 103,
+        "name": "Halatlar için elektrikli ırgat",
+        "type": "text"
+    },
+    {
+        "id": 104,
+        "name": "Halatlar için manuel ırgat",
+        "type": "text"
+    },
+    {
+        "id": 105,
+        "name": "Can Salı",
+        "type": "text"
+    },
+    {
+        "id": 106,
+        "name": "Yangın söndürücü",
+        "type": "text"
+    },
+    {
+        "id": 107,
+        "name": "Can yeleği",
+        "type": "text"
+    },
+    {
+        "id": 108,
+        "name": "Sıcak su",
+        "type": "text"
+    },
+    {
+        "id": 109,
+        "name": "Otomatik sintine pompası",
+        "type": "text"
+    },
+    {
+        "id": 110,
+        "name": "Deniz suyu pompası",
+        "type": "text"
+    }
+]
