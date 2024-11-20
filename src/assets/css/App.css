@@ -1905,3 +1905,23 @@ span.p-image.p-component.p-image-preview-container {
 img.p-image-preview {
   max-width: 65rem;
 }
+
+.table-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.table-col-title {
+  font-weight: bold;
+  flex: 1; /* Esnek genişlik */
+  color: #333;
+}
+
+.table-col-content {
+  flex: 1; /* Esnek genişlik */
+  text-align: right;
+  color: #555;
+}

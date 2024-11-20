@@ -49,6 +49,9 @@ export default function YachtDetail() {
 
     if (datas) {
       setData(apiControl.yachts.value.find((item) => item.link === state.link));
+      console.log(
+        apiControl.yachts.value.find((item) => item.link === state.link)
+      );
       setLoad(false);
     } else {
       navigate("/yachts");
@@ -118,6 +121,20 @@ export default function YachtDetail() {
                 </div>
                 <div>
                   <div dangerouslySetInnerHTML={{ __html: data.content }} />
+                  {JSON.parse(data.tech_detail) &&
+                  Object.keys(JSON.parse(data.tech_detail)).length > 0 ? (
+                    Object.entries(JSON.parse(data.tech_detail)).map(
+                      ([key, value], index) => (
+                        <div className="table-row" key={index}>
+                          {console.log(data.tech_detail)}
+                          <div className="table-col-title">{key}</div>
+                          <div className="table-col-content">{value}</div>
+                        </div>
+                      )
+                    )
+                  ) : (
+                    <div className="no-data"></div>
+                  )}
                 </div>
               </div>
             </div>
