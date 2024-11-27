@@ -1834,8 +1834,17 @@ button.btn-style.w-100:disabled {
   align-items: center;
 }
 
+.yachts_detail_flex.simple {
+  justify-content: center;
+}
+
 .yachts_detail_flex > div {
   width: calc(50% - 0.5rem);
+}
+
+.yachts_detail_flex.simple > div {
+  width: 100%;
+  max-width: 50rem;
 }
 
 .yachts_detail_images img {
@@ -1924,4 +1933,25 @@ img.p-image-preview {
   flex: 1; /* Esnek genişlik */
   text-align: right;
   color: #555;
+}
+
+.tech_table_flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  /* margin-top: 2rem; */
+}
+
+.tech_table_flex > * {
+  width: calc((100% / 3) - 0.67rem);
+}
+
+@media (max-width: 992px) {
+  .tech_table_flex > * {
+    width: calc((100% / 2) - 0.5rem);
+  }
+  .table-col-title,
+  .table-col-content {
+    font-size: 0.8rem;
+  }
 }

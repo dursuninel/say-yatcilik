@@ -83,7 +83,7 @@ export default function YachtDetail() {
           <section>
             <div className="container">
               <h2 className="text-center mb-3">{data.title}</h2>
-              <div className="yachts_detail_flex">
+              <div className={`yachts_detail_flex${data.content.length !== 13 && data.content.length !== 11 && data.content.length !== 75 ? "" : " simple"}`}>
                 <div className="">
                   <Swiper
                     className="yachts_detail_images"
@@ -119,23 +119,32 @@ export default function YachtDetail() {
                     ))}
                   </Swiper>
                 </div>
-                <div>
-                  <div dangerouslySetInnerHTML={{ __html: data.content }} />
-                  {JSON.parse(data.tech_detail) &&
-                  Object.keys(JSON.parse(data.tech_detail)).length > 0 ? (
-                    Object.entries(JSON.parse(data.tech_detail)).map(
-                      ([key, value], index) => (
-                        <div className="table-row" key={index}>
-                          {console.log(data.tech_detail)}
-                          <div className="table-col-title">{key}</div>
-                          <div className="table-col-content">{value}</div>
-                        </div>
-                      )
+                {console.log(data.content.length)}
+                {data.content.length !== 13 && data.content.length !== 11 && data.content.length !== 75 && (
+                  <>
+                    <div>
+                      <div dangerouslySetInnerHTML={{ __html: data.content }} />
+                    </div>
+                  </>
+                )}
+              </div>
+
+              <h2 className="text-center mt-4 mb-3">Teknik Bilgiler</h2>
+              <div className="tech_table_flex">
+                {JSON.parse(data.tech_detail) &&
+                Object.keys(JSON.parse(data.tech_detail)).length > 0 ? (
+                  Object.entries(JSON.parse(data.tech_detail)).map(
+                    ([key, value], index) => (
+                      <div className="table-row" key={index}>
+                        {console.log(data.tech_detail)}
+                        <div className="table-col-title">{key}</div>
+                        <div className="table-col-content">{value}</div>
+                      </div>
                     )
-                  ) : (
-                    <div className="no-data"></div>
-                  )}
-                </div>
+                  )
+                ) : (
+                  <div className="no-data"></div>
+                )}
               </div>
             </div>
           </section>
