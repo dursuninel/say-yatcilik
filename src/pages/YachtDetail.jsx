@@ -11,12 +11,17 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Thumbs } from "swiper/modules";
 import { Image } from "primereact/image";
 
+import { DataTable } from "primereact/datatable";
+import { Column } from "primereact/column";
+
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/pagination";
 
 export default function YachtDetail() {
   const { apiControl } = useContext(ApiContext);
+
+  const [tableDatas, setTableDatas] = useState([{ code: "1", name: "1" }]);
 
   const { state } = useLocation();
   const navigate = useNavigate();
@@ -49,9 +54,33 @@ export default function YachtDetail() {
 
     if (datas) {
       setData(apiControl.yachts.value.find((item) => item.link === state.link));
-      console.log(
-        apiControl.yachts.value.find((item) => item.link === state.link)
-      );
+
+      if (
+        JSON.parse(
+          apiControl.yachts.value.find((item) => item.link === state.link)
+            .tech_detail
+        ) &&
+        Object.keys(
+          JSON.parse(
+            apiControl.yachts.value.find((item) => item.link === state.link)
+              .tech_detail
+          )
+        ).length > 0
+      ) {
+        let tabledata = [];
+
+        Object.entries(
+          JSON.parse(
+            apiControl.yachts.value.find((item) => item.link === state.link)
+              .tech_detail
+          )
+        ).map(([key, value], index) =>
+          tabledata.push({ key: key, value: value })
+        );
+
+        setTableDatas(tabledata);
+      }
+
       setLoad(false);
     } else {
       navigate("/yachts");
@@ -83,7 +112,14 @@ export default function YachtDetail() {
           <section>
             <div className="container">
               <h2 className="text-center mb-3">{data.title}</h2>
-              <div className={`yachts_detail_flex${data.content.length !== 13 && data.content.length !== 11 && data.content.length !== 75 ? "" : " simple"}`}>
+              <div className={`yachts_detail_flex`}>
+                {/* ${
+                  data.content.length !== 13 &&
+                  data.content.length !== 11 &&
+                  data.content.length !== 75
+                    ? ""
+                    : " simple"
+                } */}
                 <div className="">
                   <Swiper
                     className="yachts_detail_images"
@@ -119,33 +155,34 @@ export default function YachtDetail() {
                     ))}
                   </Swiper>
                 </div>
-                {console.log(data.content.length)}
-                {data.content.length !== 13 && data.content.length !== 11 && data.content.length !== 75 && (
-                  <>
-                    <div>
-                      <div dangerouslySetInnerHTML={{ __html: data.content }} />
-                    </div>
-                  </>
-                )}
+
+                <div>
+                  <div dangerouslySetInnerHTML={{ __html: data.content }} />
+                  <h3>Teknik Bilgiler</h3>
+
+                  <DataTable
+                    value={tableDatas}
+                    paginator
+                    rows={7}
+                    // rowsPerPageOptions={[5, 10, 25, 50]}
+                  >
+                    <Column
+                      style={{ width: "50%" }}
+                      body={(data) => (
+                        <div className="table-col-title">{data.key}</div>
+                      )}
+                    ></Column>
+                    <Column
+                      style={{ width: "50%" }}
+                      body={(data) => (
+                        <div className="table-col-content">{data.value}</div>
+                      )}
+                    ></Column>
+                  </DataTable>
+                </div>
               </div>
 
-              <h2 className="text-center mt-4 mb-3">Teknik Bilgiler</h2>
-              <div className="tech_table_flex">
-                {JSON.parse(data.tech_detail) &&
-                Object.keys(JSON.parse(data.tech_detail)).length > 0 ? (
-                  Object.entries(JSON.parse(data.tech_detail)).map(
-                    ([key, value], index) => (
-                      <div className="table-row" key={index}>
-                        {console.log(data.tech_detail)}
-                        <div className="table-col-title">{key}</div>
-                        <div className="table-col-content">{value}</div>
-                      </div>
-                    )
-                  )
-                ) : (
-                  <div className="no-data"></div>
-                )}
-              </div>
+              {/* <div className="tech_table_flex">asd</div> */}
             </div>
           </section>
 
