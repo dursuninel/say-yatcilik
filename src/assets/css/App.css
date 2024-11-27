@@ -1869,9 +1869,9 @@ button.btn-style.w-100:disabled {
   border-radius: 1rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .yachts_detail_flex {
-    flex-direction: column-reverse;
+    /* flex-direction: column-reverse; */
   }
   .yachts_detail_flex > div {
     width: 100%;

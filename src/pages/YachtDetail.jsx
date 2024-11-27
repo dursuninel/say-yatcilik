@@ -158,7 +158,7 @@ export default function YachtDetail() {
 
                 <div>
                   <div dangerouslySetInnerHTML={{ __html: data.content }} />
-                  <h3>Teknik Bilgiler</h3>
+                  <h3>Özellikler</h3>
 
                   <DataTable
                     value={tableDatas}
