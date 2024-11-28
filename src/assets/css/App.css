@@ -1982,3 +1982,7 @@ img.p-image-preview {
   color: white;
   border-color: var(--blue);
 }
+
+.p-dropdown{
+  border: none;
+}

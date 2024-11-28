@@ -13,6 +13,7 @@ import GetQuote from "../components/forms/GetQuote";
 import { useLanguage } from "../context/LanguageContext";
 import NewsletterForm from "../components/forms/NewsletterForm";
 import ReactGA from "react-ga4";
+import Pagination from "../components/Pagination";
 
 const words = [
   "SANLORENZO",
@@ -36,6 +37,8 @@ export default function Home() {
       state: { link: link },
     });
   };
+
+  const [showData, setShowData] = useState(apiControl.yachts.value);
 
   useEffect(() => {
     ReactGA.send({
@@ -65,6 +68,16 @@ export default function Home() {
     setSelectedYacht(title);
     setShowOffer(true);
   };
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [dataPerPage, setDataPerPage] = useState(3);
+
+  useEffect(() => {
+    let lastDataIndex = currentPage * dataPerPage;
+    let firstDataIndex = lastDataIndex - dataPerPage;
+
+    setShowData(apiControl.yachts.value.slice(firstDataIndex, lastDataIndex));
+  }, [currentPage, dataPerPage, apiControl.yachts.value]);
 
   return (
     <>
@@ -114,7 +127,7 @@ export default function Home() {
           </div>
 
           <div className="boat-list">
-            {apiControl.yachts.value
+            {showData
               .filter((item) => Number(item.popular) === 1)
               .map((data, key) => (
                 <div className="boat-item" key={key}>
@@ -157,6 +170,13 @@ export default function Home() {
                 </div>
               ))}
           </div>
+
+          <Pagination
+            totalData={apiControl.yachts.value}
+            dataPerPage={dataPerPage}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+          />
         </div>
       </section>
 
