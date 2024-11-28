@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import { ApiContext } from "../../context/ApiContext";
 import { Dropdown } from "primereact/dropdown";
 
-const BoatSearchForm = ({ page, defaultValues }) => {
+const BoatSearchForm = ({ page, defaultValues, setCurrentPage }) => {
   const { t } = useTranslation();
   const { apiControl } = useContext(ApiContext);
   const navigate = useNavigate(); // Yönlendirme için useNavigate kullanımı
@@ -36,17 +36,23 @@ const BoatSearchForm = ({ page, defaultValues }) => {
     },
     onSubmit: (values) => {
       const filteredValues = Object.fromEntries(
-        Object.entries(values).filter(([_, value]) => value !== "" && value !== "*")
+        Object.entries(values).filter(
+          ([_, value]) => value !== "" && value !== "*"
+        )
       );
       const queryParams = new URLSearchParams(filteredValues).toString();
       navigate(`/yachts?${queryParams}`);
-      window.scrollTo(0, 0)
+      window.scrollTo(0, 0);
+
+      if (page) {
+        setCurrentPage(1);
+      }
     },
   });
 
   return (
     <form
-      className={`form-area ${page ? "extra-gap" : "" }`}
+      className={`form-area ${page ? "extra-gap" : ""}`}
       onSubmit={formik.handleSubmit}
     >
       <div>
@@ -98,7 +104,6 @@ const BoatSearchForm = ({ page, defaultValues }) => {
                 inputMode="numeric"
               />
             </div>
-
           </div>
         </div>
 
@@ -132,14 +137,13 @@ const BoatSearchForm = ({ page, defaultValues }) => {
                 value={formik.values.priceMax}
               />
             </div>
-
           </div>
         </div>
       </div>
 
       <div className="btn-group">
         <button type="submit" className="btn-style">
-        {t("form.search")}
+          {t("form.search")}
         </button>
       </div>
     </form>

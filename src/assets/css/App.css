@@ -1955,3 +1955,30 @@ img.p-image-preview {
     font-size: 0.8rem;
   }
 }
+
+.pagination_flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  margin-top: 1rem;
+}
+
+.pagination_flex button {
+  border-radius: 0.25rem;
+  border: 1px solid var(--dark-blue);
+  color: var(--dark-blue);
+  width: 2rem;
+  height: 2rem;
+  background-color: transparent;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination_flex button.active{
+  background-color: var(--blue);
+  color: white;
+  border-color: var(--blue);
+}

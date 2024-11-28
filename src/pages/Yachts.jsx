@@ -8,6 +8,7 @@ import GetQuote from "../components/forms/GetQuote";
 import BoatSearchForm from "../components/forms/BoatSearchForm";
 import ReactGA from "react-ga4";
 import { useLanguage } from "../context/LanguageContext";
+import Pagination from "../components/Pagination";
 
 export default function Yachts() {
   const { apiControl } = useContext(ApiContext);
@@ -18,6 +19,7 @@ export default function Yachts() {
   const [showOffer, setShowOffer] = useState(false);
   const [selectedYacht, setSelectedYacht] = useState("");
   const [filteredYachts, setFilteredYachts] = useState(apiControl.yachts.value);
+  const [showData, setShowData] = useState(apiControl.yachts.value);
 
   // URL parametrelerini yakala ve defaultValues olarak ayarla
   const defaultValues = useMemo(
@@ -58,6 +60,7 @@ export default function Yachts() {
       return matchBoatType && matchHeight && matchPrice;
     });
     setFilteredYachts(filtered);
+    setShowData(filtered);
   }, [defaultValues, apiControl.yachts.value]);
 
   const goToDetail = (link, title) => {
@@ -77,6 +80,16 @@ export default function Yachts() {
     setShowOffer(true);
   };
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [dataPerPage, setDataPerPage] = useState(6);
+
+  useEffect(() => {
+    let lastDataIndex = currentPage * dataPerPage;
+    let firstDataIndex = lastDataIndex - dataPerPage;
+
+    setShowData(filteredYachts.slice(firstDataIndex, lastDataIndex));
+  }, [currentPage, dataPerPage, filteredYachts]);
+
   return (
     <>
       <PageBanner
@@ -90,10 +103,10 @@ export default function Yachts() {
       <section>
         <div className="container">
           {/* BoatSearchForm'a defaultValues parametresini veriyoruz */}
-          <BoatSearchForm page={true} defaultValues={defaultValues} />
+          <BoatSearchForm page={true} setCurrentPage={setCurrentPage} defaultValues={defaultValues} />
 
           <div className="mt-4 boat-list">
-            {filteredYachts.map((data, key) => (
+            {showData.map((data, key) => (
               <div className="boat-item" key={key}>
                 <div>
                   <div className="boat-image">
@@ -134,6 +147,12 @@ export default function Yachts() {
               </div>
             ))}
           </div>
+          <Pagination
+            totalData={filteredYachts}
+            dataPerPage={dataPerPage}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+          />
         </div>
       </section>
 
