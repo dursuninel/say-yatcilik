@@ -19,6 +19,7 @@ const BoatsSlide = ({ goToDetail }) => {
       swiperRef.current.params.navigation.nextEl = nextRef.current;
       swiperRef.current.navigation.init();
       swiperRef.current.navigation.update();
+      swiperRef.current.slideNext()
     }
   }, []);
 
@@ -47,6 +48,7 @@ const BoatsSlide = ({ goToDetail }) => {
         slidesPerView={3}
         loop={true}
         spaceBetween={16}
+        autoHeight={true}
         breakpoints={{
           1200: {
             slidesPerView: 3,

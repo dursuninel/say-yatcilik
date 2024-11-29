@@ -104,7 +104,6 @@ export default function Yachts() {
         <div className="container">
           {/* BoatSearchForm'a defaultValues parametresini veriyoruz */}
           <BoatSearchForm page={true} setCurrentPage={setCurrentPage} defaultValues={defaultValues} />
-
           <div className="mt-4 boat-list">
             {showData.map((data, key) => (
               <div className="boat-item" key={key}>
