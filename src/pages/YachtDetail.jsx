@@ -208,7 +208,7 @@ export default function YachtDetail() {
                             alt={data.title}
                           />
                           <span className="boat-status">
-                            {data.boat_class === "1"
+                            {Number(data.status) === 1
                               ? t("status.no_new")
                               : t("status.new")}
                           </span>

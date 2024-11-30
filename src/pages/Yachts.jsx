@@ -103,7 +103,11 @@ export default function Yachts() {
       <section>
         <div className="container">
           {/* BoatSearchForm'a defaultValues parametresini veriyoruz */}
-          <BoatSearchForm page={true} setCurrentPage={setCurrentPage} defaultValues={defaultValues} />
+          <BoatSearchForm
+            page={true}
+            setCurrentPage={setCurrentPage}
+            defaultValues={defaultValues}
+          />
           <div className="mt-4 boat-list">
             {showData.map((data, key) => (
               <div className="boat-item" key={key}>
@@ -111,7 +115,7 @@ export default function Yachts() {
                   <div className="boat-image">
                     <img src={JSON.parse(data.image)[0]} alt={data.title} />
                     <span className="boat-status">
-                      {data.boat_class === "1"
+                      {Number(data.status) === 1
                         ? t("status.no_new")
                         : t("status.new")}
                     </span>

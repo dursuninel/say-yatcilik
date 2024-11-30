@@ -97,7 +97,7 @@ export default function Home() {
                 <h2>{t("home.banner_title")}</h2>
                 <span>
                   {" "}
-                  <Link to="/yachts">{t("status.no_new")}</Link> |{" "}
+                  <Link to="/yachts">{t("status.new")}-{t("status.no_new")}</Link> |{" "}
                   <Link to="/yachts">{t("module_banner.yachts_link")}</Link>{" "}
                 </span>
               </div>
@@ -135,7 +135,7 @@ export default function Home() {
                     <div className="boat-image">
                       <img src={JSON.parse(data.image)[0]} alt={data.title} />
                       <span className="boat-status">
-                        {data.boat_class === "1"
+                        {Number(data.status) === 1
                           ? t("status.no_new")
                           : t("status.new")}
                       </span>
