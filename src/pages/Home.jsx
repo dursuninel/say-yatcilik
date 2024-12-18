@@ -232,7 +232,7 @@ export default function Home() {
       </section> */}
 
       {/* Haberler */}
-      <section className="boat-bg more-mb">
+      {/* <section className="boat-bg more-mb">
         <div className="container">
           <div className="yachts-header mb-3">
             <h2 className="text-white">{t("module_banner.news_title")} </h2>
@@ -241,7 +241,7 @@ export default function Home() {
 
           <NewsSlide goToNewsDetail={goToNewsDetail} />
         </div>
-      </section>
+      </section> */}
 
       {/* E bülten */}
       <section className="newsletter_sec">

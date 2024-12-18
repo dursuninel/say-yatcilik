@@ -108,11 +108,11 @@ export default function Footer() {
                     </Link>
                   </li>
 
-                  <li>
+                  {/* <li>
                     <Link to="/news" title={t("header.news")}>
                       {t("header.news")}
                     </Link>
-                  </li>
+                  </li> */}
 
                   <li>
                     <Link to="/discover" title={t("header.discover")}>
